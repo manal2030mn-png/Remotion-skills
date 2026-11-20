@@ -8,35 +8,33 @@ import {
 } from "remotion";
 import { CutFlash } from "../components/CutFlash";
 import { LowerTitle } from "../components/LowerTitle";
-import { Shot } from "../components/Shot";
 import { VideoShot } from "../components/VideoShot";
 
-// Scene 3 (4.5–7 s): the tray in front of him (footage), a quick amazed beat (still),
-// then he reaches for the burger and lifts it (footage, sped up for energy).
-// Pulses on the amazed beat follow pulse.mp3 (0, 8, 19 frames after it starts).
+// Scene 3 (4.5–7 s), all footage: his amazed first look (slowed to hold the expression),
+// the tray close-up, then he reaches for the burger and lifts it (sped up for energy).
 const TrayReactionInner: React.FC = () => {
   return (
     <>
       <Track name="Shots">
-        <Sequence name="Tray close" durationInFrames={14}>
+        <Sequence name="Amazed look" durationInFrames={14}>
           <VideoShot
             src={staticFile("serve.mp4")}
             trimBefore={0}
+            playbackRate={0.5}
             length={14}
+            zoom={[1.75, 1.6]}
+            focus="50% 36%"
+            tilt={[1, 0]}
+          />
+        </Sequence>
+        <Sequence name="Tray close" from={14} durationInFrames={20}>
+          <VideoShot
+            src={staticFile("serve.mp4")}
+            trimBefore={8}
+            length={20}
             zoom={[1.9, 1.7]}
             focus="45% 84%"
             tilt={[-1.5, 0]}
-          />
-        </Sequence>
-        <Sequence name="Amazed look" from={14} durationInFrames={20}>
-          <Shot
-            src={staticFile("tray-reaction.jpg")}
-            length={20}
-            zoom={[1.9, 1.6]}
-            focus="52% 40%"
-            pan={[0, 0]}
-            tilt={[1, 0]}
-            beats={[0, 8, 19]}
           />
         </Sequence>
         <Sequence name="Grab & lift" from={34} durationInFrames={41}>
@@ -78,9 +76,15 @@ const TrayReactionInner: React.FC = () => {
       <Track name="SFX">
         <Audio name="Whoosh in" src={staticFile("whoosh.mp3")} volume={0.6} />
         <Audio
+          name="Whoosh to tray"
+          src={staticFile("whoosh.mp3")}
+          from={12}
+          volume={0.45}
+        />
+        <Audio
           name="Tray thud"
           src={staticFile("tray-thud.mp3")}
-          from={3}
+          from={17}
           volume={0.9}
         />
         <Audio
@@ -90,12 +94,6 @@ const TrayReactionInner: React.FC = () => {
           volume={0.45}
         />
       </Track>
-      <Audio
-        name="Rising pulse"
-        src={staticFile("pulse.mp3")}
-        from={14}
-        volume={1}
-      />
     </>
   );
 };
