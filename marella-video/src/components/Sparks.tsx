@@ -37,7 +37,8 @@ export const Sparks: React.FC<Props> = ({ seed, count, x, y, rise }) => {
               borderRadius: size,
               opacity: alpha,
               rotate: `${drift / 12}deg`,
-              background: "radial-gradient(circle, #FFF4C2 0%, #FFB547 45%, #FF6A1A 100%)",
+              background:
+                "radial-gradient(circle, #FFF4C2 0%, #FFB547 45%, #FF6A1A 100%)",
               boxShadow: `0 0 ${size * 2.5}px ${size * 0.8}px rgba(255,120,30,0.75)`,
             }}
           />

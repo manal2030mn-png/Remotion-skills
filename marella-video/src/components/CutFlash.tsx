@@ -9,7 +9,9 @@ export const CutFlash: React.FC = () => {
       style={{
         backgroundColor: IVORY,
         mixBlendMode: "screen",
-        opacity: interpolate(frame, [0, 3], [0.55, 0], { extrapolateRight: "clamp" }),
+        opacity: interpolate(frame, [0, 3], [0.55, 0], {
+          extrapolateRight: "clamp",
+        }),
       }}
     />
   );

@@ -7,14 +7,26 @@ export const BrandWipe: React.FC<{ readonly cover: number }> = ({ cover }) => {
   const frame = useCurrentFrame();
   const ease = Easing.bezier(0.7, 0, 0.3, 1);
   const panel = (color: string, delay: number, edge: boolean) => {
-    const x = interpolate(frame, [delay, cover + delay, cover + delay + 2, cover * 2 + delay], [130, 0, 0, -130], {
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-      easing: ease,
-    });
+    const x = interpolate(
+      frame,
+      [delay, cover + delay, cover + delay + 2, cover * 2 + delay],
+      [130, 0, 0, -130],
+      {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+        easing: ease,
+      },
+    );
     return (
-      <AbsoluteFill style={{ translate: `${x}% 0%`, rotate: "-12deg", scale: 1.6 }}>
-        <AbsoluteFill style={{ backgroundColor: color, borderLeft: edge ? `6px solid ${IVORY}` : undefined }} />
+      <AbsoluteFill
+        style={{ translate: `${x}% 0%`, rotate: "-12deg", scale: 1.6 }}
+      >
+        <AbsoluteFill
+          style={{
+            backgroundColor: color,
+            borderLeft: edge ? `6px solid ${IVORY}` : undefined,
+          }}
+        />
       </AbsoluteFill>
     );
   };

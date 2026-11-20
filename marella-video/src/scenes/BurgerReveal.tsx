@@ -1,5 +1,11 @@
 import { Audio } from "@remotion/media";
-import { AbsoluteFill, Interactive, Sequence, staticFile, Track } from "remotion";
+import {
+  AbsoluteFill,
+  Interactive,
+  Sequence,
+  staticFile,
+  Track,
+} from "remotion";
 import { CutFlash } from "../components/CutFlash";
 import { LowerTitle } from "../components/LowerTitle";
 import { Shot } from "../components/Shot";
@@ -11,20 +17,42 @@ const BurgerRevealInner: React.FC = () => {
     <>
       <Track name="Shots">
         <Sequence name="Cheese drip" durationInFrames={12}>
-          <Shot src={staticFile("burger.png")} length={12} zoom={[2.3, 1.85]} focus="72% 42%" pan={[-30, 30]} tilt={[3, 1]} />
+          <Shot
+            src={staticFile("burger.png")}
+            length={12}
+            zoom={[2.3, 1.85]}
+            focus="72% 42%"
+            pan={[-30, 30]}
+            tilt={[3, 1]}
+          />
         </Sequence>
         <Sequence name="Layers" from={12} durationInFrames={12}>
-          <Shot src={staticFile("burger.png")} length={12} zoom={[1.6, 1.85]} focus="70% 72%" pan={[40, -30]} tilt={[-2, 0]} />
+          <Shot
+            src={staticFile("burger.png")}
+            length={12}
+            zoom={[1.6, 1.85]}
+            focus="70% 72%"
+            pan={[40, -30]}
+            tilt={[-2, 0]}
+          />
         </Sequence>
         <Sequence name="Hero burger" from={24} durationInFrames={51}>
-          <Shot src={staticFile("burger.png")} length={51} zoom={[1.18, 1.03]} focus="96% 45%" pan={[0, -10]} tilt={[1, 0]} />
+          <Shot
+            src={staticFile("burger.png")}
+            length={51}
+            zoom={[1.18, 1.03]}
+            focus="96% 45%"
+            pan={[0, -10]}
+            tilt={[1, 0]}
+          />
         </Sequence>
       </Track>
 
       <Sparks seed="s2" count={14} x={[0, 1080]} y={1300} rise={1100} />
       <AbsoluteFill
         style={{
-          background: "radial-gradient(ellipse 90% 75% at 50% 45%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.45) 100%)",
+          background:
+            "radial-gradient(ellipse 90% 75% at 50% 45%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.45) 100%)",
         }}
       />
 
@@ -41,8 +69,18 @@ const BurgerRevealInner: React.FC = () => {
 
       <Audio name="Reveal hit" src={staticFile("impact.mp3")} volume={0.9} />
       <Track name="Whooshes">
-        <Audio name="Whoosh 1" src={staticFile("whoosh.mp3")} from={10} volume={0.45} />
-        <Audio name="Whoosh 2" src={staticFile("whoosh.mp3")} from={22} volume={0.55} />
+        <Audio
+          name="Whoosh 1"
+          src={staticFile("whoosh.mp3")}
+          from={10}
+          volume={0.45}
+        />
+        <Audio
+          name="Whoosh 2"
+          src={staticFile("whoosh.mp3")}
+          from={22}
+          volume={0.55}
+        />
       </Track>
     </>
   );
