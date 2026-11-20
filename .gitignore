@@ -7,3 +7,5 @@ __pycache__/
 .env
 drafts/
 sims/dist/
+# Playwright CLI output (may contain credentials)
+.playwright-cli/
