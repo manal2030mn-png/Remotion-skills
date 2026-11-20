@@ -1,6 +1,7 @@
 import { Composition, Folder } from "remotion";
 import { MarellaAd } from "./MarellaAd";
 import { BurgerReveal } from "./scenes/BurgerReveal";
+import { BurgerSplit } from "./scenes/BurgerSplit";
 import { FirstBite } from "./scenes/FirstBite";
 import { GrillOpening } from "./scenes/GrillOpening";
 import { TrayReaction } from "./scenes/TrayReaction";
@@ -11,7 +12,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="MarellaAd"
         component={MarellaAd}
-        durationInFrames={285}
+        durationInFrames={360}
         fps={30}
         width={1080}
         height={1920}
@@ -47,6 +48,15 @@ export const RemotionRoot: React.FC = () => {
         <Composition
           id="FirstBite"
           component={FirstBite}
+          durationInFrames={75}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={{ style: { backgroundColor: "#254746" } }}
+        />
+        <Composition
+          id="BurgerSplit"
+          component={BurgerSplit}
           durationInFrames={75}
           fps={30}
           width={1080}

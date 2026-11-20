@@ -2,11 +2,12 @@ import { Audio } from "@remotion/media";
 import { Sequence, staticFile, Track, useVideoConfig } from "remotion";
 import { BrandWipe } from "./components/BrandWipe";
 import { BurgerReveal } from "./scenes/BurgerReveal";
+import { BurgerSplit } from "./scenes/BurgerSplit";
 import { FirstBite } from "./scenes/FirstBite";
 import { GrillOpening } from "./scenes/GrillOpening";
 import { TrayReaction } from "./scenes/TrayReaction";
 
-// Full Marella ad, full-bleed 9:16. Next scenes go on the "Scenes" track after scene 4 (9.5 s).
+// Full Marella ad, full-bleed 9:16. Next scenes go on the "Scenes" track after scene 5 (12 s).
 export const MarellaAd: React.FC = () => {
   const { fps } = useVideoConfig();
 
@@ -33,6 +34,12 @@ export const MarellaAd: React.FC = () => {
         <FirstBite
           name="Scene 4 – First bite"
           from={7 * fps}
+          durationInFrames={2.5 * fps}
+          style={{ backgroundColor: "#254746" }}
+        />
+        <BurgerSplit
+          name="Scene 5 – Burger split"
+          from={9.5 * fps}
           durationInFrames={2.5 * fps}
           style={{ backgroundColor: "#254746" }}
         />
