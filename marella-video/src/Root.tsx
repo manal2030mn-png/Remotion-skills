@@ -13,7 +13,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="MarellaAd"
         component={MarellaAd}
-        durationInFrames={405}
+        durationInFrames={420}
         fps={30}
         width={1080}
         height={1920}
@@ -31,7 +31,7 @@ export const RemotionRoot: React.FC = () => {
         <Composition
           id="BurgerReveal"
           component={BurgerReveal}
-          durationInFrames={60}
+          durationInFrames={72}
           fps={30}
           width={1080}
           height={1920}
@@ -40,7 +40,7 @@ export const RemotionRoot: React.FC = () => {
         <Composition
           id="TrayReaction"
           component={TrayReaction}
-          durationInFrames={75}
+          durationInFrames={87}
           fps={30}
           width={1080}
           height={1920}
@@ -49,7 +49,7 @@ export const RemotionRoot: React.FC = () => {
         <Composition
           id="FirstBite"
           component={FirstBite}
-          durationInFrames={75}
+          durationInFrames={87}
           fps={30}
           width={1080}
           height={1920}
@@ -58,7 +58,7 @@ export const RemotionRoot: React.FC = () => {
         <Composition
           id="BurgerSplit"
           component={BurgerSplit}
-          durationInFrames={75}
+          durationInFrames={87}
           fps={30}
           width={1080}
           height={1920}
@@ -67,7 +67,7 @@ export const RemotionRoot: React.FC = () => {
         <Composition
           id="Finale"
           component={Finale}
-          durationInFrames={45}
+          durationInFrames={72}
           fps={30}
           width={1080}
           height={1920}

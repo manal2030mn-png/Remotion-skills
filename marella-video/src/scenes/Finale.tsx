@@ -44,13 +44,14 @@ const FinaleContent: React.FC = () => {
   const wordmark = useReveal(10);
   const tagline = useReveal(19);
   const place = useReveal(25);
+  const cta = useReveal(34);
 
   return (
     <AbsoluteFill style={{ alignItems: "center", fontFamily, color: IVORY }}>
       <div
         style={{
           position: "absolute",
-          top: 520,
+          top: 440,
           scale: interpolate(frame, [0, 30], [0.92, 1], {
             extrapolateRight: "clamp",
             easing: ease,
@@ -65,7 +66,7 @@ const FinaleContent: React.FC = () => {
         lang="ar"
         style={{
           position: "absolute",
-          top: 1010,
+          top: 930,
           fontSize: 150,
           fontWeight: 400,
           ...wordmark,
@@ -77,7 +78,7 @@ const FinaleContent: React.FC = () => {
       <div
         style={{
           position: "absolute",
-          top: 1250,
+          top: 1170,
           width: 520,
           height: 2,
           backgroundColor: IVORY,
@@ -91,7 +92,7 @@ const FinaleContent: React.FC = () => {
         lang="ar"
         style={{
           position: "absolute",
-          top: 1300,
+          top: 1215,
           fontSize: 76,
           fontWeight: 600,
           display: "flex",
@@ -119,7 +120,7 @@ const FinaleContent: React.FC = () => {
         lang="ar"
         style={{
           position: "absolute",
-          top: 1440,
+          top: 1350,
           fontSize: 52,
           fontWeight: 400,
           display: "flex",
@@ -139,12 +140,39 @@ const FinaleContent: React.FC = () => {
         </svg>
         <span>الطائف - طريق الجيش</span>
       </div>
+      {/* Call to action */}
+      <div
+        dir="rtl"
+        lang="ar"
+        style={{
+          position: "absolute",
+          top: 1520,
+          padding: "22px 72px",
+          borderRadius: 999,
+          border: `3px solid ${IVORY}`,
+          backgroundColor: "rgba(211,212,202,0.12)",
+          fontSize: 80,
+          fontWeight: 600,
+          lineHeight: 1.2,
+          boxShadow: "0 0 40px rgba(233,201,138,0.25)",
+          ...cta,
+          scale:
+            interpolate(frame, [34, 44], [0.85, 1], {
+              extrapolateLeft: "clamp",
+              extrapolateRight: "clamp",
+              easing: Easing.spring({ damping: 10 }),
+            }) +
+            0.02 * Math.sin(Math.max(0, frame - 44) / 4),
+        }}
+      >
+        جرّبه اليوم
+      </div>
     </AbsoluteFill>
   );
 };
 
-// Scene 7 (13.5–15 s): closing card on the teal gradient with warm light, the arch mark,
-// wordmark, tagline and location.
+// Closing card (12–14 s): teal gradient with warm light, the arch mark,
+// wordmark, tagline, location and the "جرّبه اليوم" call to action.
 const FinaleInner: React.FC = () => {
   return (
     <>

@@ -25,12 +25,12 @@ const FirstBiteInner: React.FC = () => {
             tilt={[-1, 0]}
           />
         </Sequence>
-        <Sequence name="Chewing & savouring" from={24} durationInFrames={51}>
+        <Sequence name="Chewing & savouring" from={24} durationInFrames={63}>
           <VideoShot
             src={staticFile("bite.mp4")}
             trimBefore={50}
-            playbackRate={1.35}
-            length={51}
+            playbackRate={1.2}
+            length={63}
             zoom={[1.22, 1.06]}
             focus="45% 35%"
             tilt={[0.8, 0]}
@@ -54,7 +54,19 @@ const FirstBiteInner: React.FC = () => {
       <LowerTitle text="طعم يفرق" start={30} fontSize={150} star />
 
       <Track name="SFX">
-        <Audio name="Bite" src={staticFile("bite.mp3")} from={1} volume={1} />
+        <Audio
+          name="Crunch"
+          src={staticFile("crunch.mp3")}
+          trimBefore={12}
+          from={1}
+          volume={1}
+        />
+        <Audio
+          name="Bite"
+          src={staticFile("bite.mp3")}
+          from={3}
+          volume={0.55}
+        />
         <Audio
           name="Whoosh cut"
           src={staticFile("whoosh.mp3")}

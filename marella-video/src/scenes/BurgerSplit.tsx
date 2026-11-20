@@ -37,12 +37,12 @@ const BurgerSplitInner: React.FC = () => {
             tilt={[1, 0]}
           />
         </Sequence>
-        <Sequence name="Halves part" from={44} durationInFrames={31}>
+        <Sequence name="Halves part" from={44} durationInFrames={43}>
           <VideoShot
             src={staticFile("split.mp4")}
             trimBefore={98}
-            playbackRate={1.6}
-            length={31}
+            playbackRate={1.15}
+            length={43}
             zoom={[1.14, 1.04]}
             focus="66% 58%"
             tilt={[-1, 0]}

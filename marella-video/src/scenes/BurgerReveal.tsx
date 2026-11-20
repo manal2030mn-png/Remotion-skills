@@ -36,10 +36,10 @@ const BurgerRevealInner: React.FC = () => {
             tilt={[-2, 0]}
           />
         </Sequence>
-        <Sequence name="Hero burger" from={24} durationInFrames={36}>
+        <Sequence name="Hero burger" from={24} durationInFrames={48}>
           <Shot
             src={staticFile("burger.png")}
-            length={36}
+            length={48}
             zoom={[1.18, 1.03]}
             focus="96% 45%"
             pan={[0, -10]}

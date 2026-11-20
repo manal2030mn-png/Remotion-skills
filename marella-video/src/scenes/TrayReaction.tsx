@@ -37,12 +37,12 @@ const TrayReactionInner: React.FC = () => {
             tilt={[-1.5, 0]}
           />
         </Sequence>
-        <Sequence name="Grab & lift" from={34} durationInFrames={41}>
+        <Sequence name="Grab & lift" from={34} durationInFrames={53}>
           <VideoShot
             src={staticFile("serve.mp4")}
             trimBefore={40}
             playbackRate={1.4}
-            length={41}
+            length={53}
             zoom={[1.28, 1.1]}
             focus="50% 48%"
             tilt={[-1, 0]}
