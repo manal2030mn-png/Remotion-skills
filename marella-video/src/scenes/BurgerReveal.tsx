@@ -11,7 +11,7 @@ import { LowerTitle } from "../components/LowerTitle";
 import { Shot } from "../components/Shot";
 import { Sparks } from "../components/Sparks";
 
-// Scene 2 (2.5–5 s): punchy burger detail cuts, then the hero frame with "برجر ماريلا".
+// Scene 2 (2.5–4.5 s): punchy burger detail cuts, then the hero frame with "برجر ماريلا".
 const BurgerRevealInner: React.FC = () => {
   return (
     <>
@@ -36,10 +36,10 @@ const BurgerRevealInner: React.FC = () => {
             tilt={[-2, 0]}
           />
         </Sequence>
-        <Sequence name="Hero burger" from={24} durationInFrames={51}>
+        <Sequence name="Hero burger" from={24} durationInFrames={36}>
           <Shot
             src={staticFile("burger.png")}
-            length={51}
+            length={36}
             zoom={[1.18, 1.03]}
             focus="96% 45%"
             pan={[0, -10]}

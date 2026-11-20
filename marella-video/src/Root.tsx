@@ -1,9 +1,9 @@
 import { Composition, Folder } from "remotion";
 import { MarellaAd } from "./MarellaAd";
 import { BurgerReveal } from "./scenes/BurgerReveal";
+import { FirstBite } from "./scenes/FirstBite";
 import { GrillOpening } from "./scenes/GrillOpening";
-import { PresenterReaction } from "./scenes/PresenterReaction";
-import { TrayServe } from "./scenes/TrayServe";
+import { TrayReaction } from "./scenes/TrayReaction";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -11,7 +11,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="MarellaAd"
         component={MarellaAd}
-        durationInFrames={220}
+        durationInFrames={285}
         fps={30}
         width={1080}
         height={1920}
@@ -29,6 +29,15 @@ export const RemotionRoot: React.FC = () => {
         <Composition
           id="BurgerReveal"
           component={BurgerReveal}
+          durationInFrames={60}
+          fps={30}
+          width={1080}
+          height={1920}
+          defaultProps={{ style: { backgroundColor: "#254746" } }}
+        />
+        <Composition
+          id="TrayReaction"
+          component={TrayReaction}
           durationInFrames={75}
           fps={30}
           width={1080}
@@ -36,18 +45,9 @@ export const RemotionRoot: React.FC = () => {
           defaultProps={{ style: { backgroundColor: "#254746" } }}
         />
         <Composition
-          id="TrayServe"
-          component={TrayServe}
-          durationInFrames={40}
-          fps={30}
-          width={1080}
-          height={1920}
-          defaultProps={{ style: { backgroundColor: "#254746" } }}
-        />
-        <Composition
-          id="PresenterReaction"
-          component={PresenterReaction}
-          durationInFrames={30}
+          id="FirstBite"
+          component={FirstBite}
+          durationInFrames={75}
           fps={30}
           width={1080}
           height={1920}

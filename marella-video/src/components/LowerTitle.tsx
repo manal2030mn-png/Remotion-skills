@@ -12,6 +12,8 @@ type Props = {
   readonly start: number;
   readonly fontSize: number;
   readonly star?: boolean;
+  // "top" keeps the frame's lower half (tray, cup, logo) clear.
+  readonly placement?: "bottom" | "top";
 };
 
 const ease = Easing.bezier(0.16, 1, 0.3, 1);
@@ -23,8 +25,12 @@ export const LowerTitle: React.FC<Props> = ({
   start,
   fontSize,
   star = false,
+  placement = "bottom",
 }) => {
   const frame = useCurrentFrame();
+  const top = placement === "top";
+  const lineTops = top ? [190, 480] : [1430, 1720];
+  const textTop = top ? 200 : 1440;
   const starIn = start + 9;
 
   return (
@@ -35,15 +41,15 @@ export const LowerTitle: React.FC<Props> = ({
             extrapolateLeft: "clamp",
             extrapolateRight: "clamp",
           }),
-          background: `linear-gradient(180deg, rgba(0,0,0,0) 58%, ${TEAL}B3 76%, ${TEAL}F2 100%)`,
+          background: `linear-gradient(${top ? "0deg" : "180deg"}, rgba(0,0,0,0) 58%, ${TEAL}B3 76%, ${TEAL}F2 100%)`,
         }}
       />
-      {[1430, 1720].map((top, i) => (
+      {lineTops.map((lineTop, i) => (
         <div
-          key={top}
+          key={lineTop}
           style={{
             position: "absolute",
-            top,
+            top: lineTop,
             left: 140,
             right: 140,
             height: 2,
@@ -70,7 +76,7 @@ export const LowerTitle: React.FC<Props> = ({
           position: "absolute",
           left: 80,
           right: 80,
-          top: 1440,
+          top: textTop,
           height: 280,
           display: "flex",
           justifyContent: "center",
