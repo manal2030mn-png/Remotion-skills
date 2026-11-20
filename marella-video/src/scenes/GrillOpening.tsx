@@ -80,7 +80,7 @@ const GrillOpeningInner: React.FC = () => {
         </Sequence>
       </Track>
 
-      <LowerTitle text="يبي لها من بدري" start={34} fontSize={124} star />
+      <LowerTitle text="يبي لها من بدري" start={34} fontSize={132} star />
 
       <Audio name="Grill sizzle" src={staticFile("sizzle.mp3")} volume={0.9} />
       <Track name="Whooshes">

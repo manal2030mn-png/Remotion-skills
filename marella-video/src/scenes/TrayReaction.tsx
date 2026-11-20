@@ -6,7 +6,6 @@ import {
   staticFile,
   Track,
 } from "remotion";
-import { CutFlash } from "../components/CutFlash";
 import { LowerTitle } from "../components/LowerTitle";
 import { VideoShot } from "../components/VideoShot";
 
@@ -57,19 +56,10 @@ const TrayReactionInner: React.FC = () => {
         }}
       />
 
-      <Track name="Cut flashes">
-        <Sequence name="Flash 1" from={14} durationInFrames={3}>
-          <CutFlash />
-        </Sequence>
-        <Sequence name="Flash 2" from={34} durationInFrames={3}>
-          <CutFlash />
-        </Sequence>
-      </Track>
-
       <LowerTitle
         text="لازم يكون من خياراتك"
         start={38}
-        fontSize={104}
+        fontSize={108}
         placement="top"
       />
 

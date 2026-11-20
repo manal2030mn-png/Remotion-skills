@@ -22,7 +22,7 @@ const BurgerSplitInner: React.FC = () => {
             trimBefore={20}
             playbackRate={2}
             length={24}
-            zoom={[1.0, 1.06]}
+            zoom={[1.0, 1.08]}
             focus="50% 50%"
           />
         </Sequence>
@@ -43,7 +43,7 @@ const BurgerSplitInner: React.FC = () => {
             trimBefore={98}
             playbackRate={1.15}
             length={43}
-            zoom={[1.14, 1.04]}
+            zoom={[1.04, 1.16]}
             focus="66% 58%"
             tilt={[-1, 0]}
           />
@@ -69,7 +69,7 @@ const BurgerSplitInner: React.FC = () => {
       <LowerTitle
         text="وجهة الذّويق"
         start={48}
-        fontSize={140}
+        fontSize={160}
         star
         placement="top"
       />

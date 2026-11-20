@@ -6,7 +6,6 @@ import {
   staticFile,
   Track,
 } from "remotion";
-import { CutFlash } from "../components/CutFlash";
 import { LowerTitle } from "../components/LowerTitle";
 import { VideoShot } from "../components/VideoShot";
 
@@ -45,13 +44,7 @@ const FirstBiteInner: React.FC = () => {
         }}
       />
 
-      <Track name="Cut flashes">
-        <Sequence name="Flash" from={24} durationInFrames={3}>
-          <CutFlash />
-        </Sequence>
-      </Track>
-
-      <LowerTitle text="طعم يفرق" start={30} fontSize={150} star />
+      <LowerTitle text="طعم يفرق" start={30} fontSize={172} star />
 
       <Track name="SFX">
         <Audio

@@ -40,7 +40,7 @@ const BurgerRevealInner: React.FC = () => {
           <Shot
             src={staticFile("burger.png")}
             length={48}
-            zoom={[1.18, 1.03]}
+            zoom={[1.03, 1.16]}
             focus="96% 45%"
             pan={[0, -10]}
             tilt={[1, 0]}
@@ -65,7 +65,7 @@ const BurgerRevealInner: React.FC = () => {
         </Sequence>
       </Track>
 
-      <LowerTitle text="برجر ماريلا" start={28} fontSize={150} />
+      <LowerTitle text="برجر ماريلا" start={28} fontSize={172} />
 
       <Audio name="Reveal hit" src={staticFile("impact.mp3")} volume={0.9} />
       <Track name="Whooshes">

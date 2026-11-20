@@ -67,7 +67,7 @@ const FinaleContent: React.FC = () => {
         style={{
           position: "absolute",
           top: 930,
-          fontSize: 150,
+          fontSize: 172,
           fontWeight: 400,
           ...wordmark,
         }}
@@ -93,7 +93,7 @@ const FinaleContent: React.FC = () => {
         style={{
           position: "absolute",
           top: 1215,
-          fontSize: 76,
+          fontSize: 88,
           fontWeight: 600,
           display: "flex",
           alignItems: "center",
@@ -103,8 +103,8 @@ const FinaleContent: React.FC = () => {
       >
         <span>ماريلا .. وجهة الذّويق</span>
         <svg
-          width={44}
-          height={44}
+          width={52}
+          height={52}
           viewBox="-50 -50 100 100"
           style={{ rotate: `${45 + frame * 2}deg` }}
         >
@@ -121,7 +121,7 @@ const FinaleContent: React.FC = () => {
         style={{
           position: "absolute",
           top: 1350,
-          fontSize: 52,
+          fontSize: 62,
           fontWeight: 400,
           display: "flex",
           alignItems: "center",
@@ -129,7 +129,7 @@ const FinaleContent: React.FC = () => {
           ...place,
         }}
       >
-        <svg width={40} height={48} viewBox="0 0 24 30">
+        <svg width={46} height={56} viewBox="0 0 24 30">
           <path
             d="M12 1C6.5 1 2 5.3 2 10.8 2 18 12 29 12 29s10-11 10-18.2C22 5.3 17.5 1 12 1Z"
             fill="none"
@@ -151,7 +151,7 @@ const FinaleContent: React.FC = () => {
           borderRadius: 999,
           border: `3px solid ${IVORY}`,
           backgroundColor: "rgba(211,212,202,0.12)",
-          fontSize: 80,
+          fontSize: 92,
           fontWeight: 600,
           lineHeight: 1.2,
           boxShadow: "0 0 40px rgba(233,201,138,0.25)",

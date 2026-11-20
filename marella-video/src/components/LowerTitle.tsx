@@ -93,6 +93,7 @@ export const LowerTitle: React.FC<Props> = ({
         <span
           style={{
             display: "inline-block",
+            whiteSpace: "nowrap",
             // Whole line fades and rises in together, so Arabic letters are always complete and joined.
             opacity: interpolate(frame, [start, start + 6], [0, 1], {
               extrapolateLeft: "clamp",
