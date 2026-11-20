@@ -3,11 +3,13 @@ import { Sequence, staticFile, Track, useVideoConfig } from "remotion";
 import { BrandWipe } from "./components/BrandWipe";
 import { BurgerReveal } from "./scenes/BurgerReveal";
 import { BurgerSplit } from "./scenes/BurgerSplit";
+import { ColdDrink } from "./scenes/ColdDrink";
+import { Finale } from "./scenes/Finale";
 import { FirstBite } from "./scenes/FirstBite";
 import { GrillOpening } from "./scenes/GrillOpening";
 import { TrayReaction } from "./scenes/TrayReaction";
 
-// Full Marella ad, full-bleed 9:16. Next scenes go on the "Scenes" track after scene 5 (12 s).
+// Full Marella ad, full-bleed 9:16. Next scenes go on the "Scenes" track — the ad ends with scene 7 at 15 s.
 export const MarellaAd: React.FC = () => {
   const { fps } = useVideoConfig();
 
@@ -43,6 +45,18 @@ export const MarellaAd: React.FC = () => {
           durationInFrames={2.5 * fps}
           style={{ backgroundColor: "#254746" }}
         />
+        <ColdDrink
+          name="Scene 6 – Cold drink"
+          from={12 * fps}
+          durationInFrames={1.5 * fps}
+          style={{ backgroundColor: "#254746" }}
+        />
+        <Finale
+          name="Scene 7 – Finale"
+          from={13.5 * fps}
+          durationInFrames={1.5 * fps}
+          style={{ backgroundColor: "#254746" }}
+        />
       </Track>
 
       {/* Quick brand wipes (~0.33 s). Scene 3 enters with its own tray drop over teal. */}
@@ -61,6 +75,13 @@ export const MarellaAd: React.FC = () => {
         >
           <BrandWipe cover={4} />
         </Sequence>
+        <Sequence
+          name="Brand wipe 6→7"
+          from={13.5 * fps - 4}
+          durationInFrames={10}
+        >
+          <BrandWipe cover={4} />
+        </Sequence>
       </Track>
       <Track name="Transition SFX">
         <Audio
@@ -74,6 +95,12 @@ export const MarellaAd: React.FC = () => {
           src={staticFile("whoosh.mp3")}
           from={7 * fps - 5}
           volume={0.7}
+        />
+        <Audio
+          name="Wipe whoosh 3"
+          src={staticFile("whoosh.mp3")}
+          from={13.5 * fps - 5}
+          volume={0.6}
         />
       </Track>
     </>
