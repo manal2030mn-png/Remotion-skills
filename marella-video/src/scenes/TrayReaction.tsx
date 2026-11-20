@@ -9,44 +9,45 @@ import {
 import { CutFlash } from "../components/CutFlash";
 import { LowerTitle } from "../components/LowerTitle";
 import { Shot } from "../components/Shot";
+import { VideoShot } from "../components/VideoShot";
 
-// Scene 3 (4.5–7 s): tray lands (burger, fries, Marella drink), then the amazed reaction.
-// Reaction pulses are synced to the beats in pulse.mp3 (0, 8, 19, 26 frames after it starts).
+// Scene 3 (4.5–7 s): the tray in front of him (footage), a quick amazed beat (still),
+// then he reaches for the burger and lifts it (footage, sped up for energy).
+// Pulses on the amazed beat follow pulse.mp3 (0, 8, 19 frames after it starts).
 const TrayReactionInner: React.FC = () => {
   return (
     <>
       <Track name="Shots">
-        <Sequence name="Tray slam" durationInFrames={12}>
-          <Shot
-            src={staticFile("tray-reaction.jpg")}
-            length={12}
-            drop={5}
-            zoom={[1.85, 1.72]}
+        <Sequence name="Tray close" durationInFrames={14}>
+          <VideoShot
+            src={staticFile("serve.mp4")}
+            trimBefore={0}
+            length={14}
+            zoom={[1.9, 1.7]}
             focus="45% 84%"
-            pan={[0, 0]}
             tilt={[-1.5, 0]}
-            style={{ backgroundColor: "transparent" }}
           />
         </Sequence>
-        <Sequence name="Marella drink" from={12} durationInFrames={10}>
+        <Sequence name="Amazed look" from={14} durationInFrames={20}>
           <Shot
             src={staticFile("tray-reaction.jpg")}
-            length={10}
-            zoom={[2.1, 2.3]}
-            focus="16% 76%"
-            pan={[20, 0]}
-            tilt={[1.5, 0]}
-          />
-        </Sequence>
-        <Sequence name="Amazed reaction" from={22} durationInFrames={53}>
-          <Shot
-            src={staticFile("tray-reaction.jpg")}
-            length={53}
-            zoom={[1.9, 1.1]}
+            length={20}
+            zoom={[1.9, 1.6]}
             focus="52% 40%"
             pan={[0, 0]}
             tilt={[1, 0]}
-            beats={[0, 8, 19, 26]}
+            beats={[0, 8, 19]}
+          />
+        </Sequence>
+        <Sequence name="Grab & lift" from={34} durationInFrames={41}>
+          <VideoShot
+            src={staticFile("serve.mp4")}
+            trimBefore={40}
+            playbackRate={1.4}
+            length={41}
+            zoom={[1.28, 1.1]}
+            focus="50% 48%"
+            tilt={[-1, 0]}
           />
         </Sequence>
       </Track>
@@ -59,17 +60,17 @@ const TrayReactionInner: React.FC = () => {
       />
 
       <Track name="Cut flashes">
-        <Sequence name="Flash 1" from={12} durationInFrames={3}>
+        <Sequence name="Flash 1" from={14} durationInFrames={3}>
           <CutFlash />
         </Sequence>
-        <Sequence name="Flash 2" from={22} durationInFrames={3}>
+        <Sequence name="Flash 2" from={34} durationInFrames={3}>
           <CutFlash />
         </Sequence>
       </Track>
 
       <LowerTitle
         text="لازم يكون من خياراتك"
-        start={32}
+        start={38}
         fontSize={104}
         placement="top"
       />
@@ -79,20 +80,20 @@ const TrayReactionInner: React.FC = () => {
         <Audio
           name="Tray thud"
           src={staticFile("tray-thud.mp3")}
-          from={5}
-          volume={1}
+          from={3}
+          volume={0.9}
         />
         <Audio
           name="Whoosh cut"
           src={staticFile("whoosh.mp3")}
-          from={10}
+          from={32}
           volume={0.45}
         />
       </Track>
       <Audio
         name="Rising pulse"
         src={staticFile("pulse.mp3")}
-        from={22}
+        from={14}
         volume={1}
       />
     </>

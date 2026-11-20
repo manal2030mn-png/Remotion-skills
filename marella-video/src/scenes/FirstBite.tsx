@@ -8,30 +8,31 @@ import {
 } from "remotion";
 import { CutFlash } from "../components/CutFlash";
 import { LowerTitle } from "../components/LowerTitle";
-import { Shot } from "../components/Shot";
+import { VideoShot } from "../components/VideoShot";
 
-// Scene 4 (7–9.5 s): the real first bite up close, then a calm pull-out while he savours it.
+// Scene 4 (7–9.5 s): the real bite up close (footage), then a wider shot while he chews and savours it.
 const FirstBiteInner: React.FC = () => {
   return (
     <>
       <Track name="Shots">
-        <Sequence name="Bite close-up" durationInFrames={20}>
-          <Shot
-            src={staticFile("bite.jpg")}
-            length={20}
-            zoom={[1.75, 1.6]}
-            focus="47% 47%"
-            pan={[0, 0]}
+        <Sequence name="Bite close-up" durationInFrames={24}>
+          <VideoShot
+            src={staticFile("bite.mp4")}
+            trimBefore={0}
+            length={24}
+            zoom={[1.55, 1.42]}
+            focus="38% 32%"
             tilt={[-1, 0]}
           />
         </Sequence>
-        <Sequence name="Savouring" from={20} durationInFrames={55}>
-          <Shot
-            src={staticFile("bite.jpg")}
-            length={55}
-            zoom={[1.32, 1.1]}
-            focus="50% 45%"
-            pan={[0, -10]}
+        <Sequence name="Chewing & savouring" from={24} durationInFrames={51}>
+          <VideoShot
+            src={staticFile("bite.mp4")}
+            trimBefore={50}
+            playbackRate={1.35}
+            length={51}
+            zoom={[1.22, 1.06]}
+            focus="45% 35%"
             tilt={[0.8, 0]}
           />
         </Sequence>
@@ -45,7 +46,7 @@ const FirstBiteInner: React.FC = () => {
       />
 
       <Track name="Cut flashes">
-        <Sequence name="Flash" from={20} durationInFrames={3}>
+        <Sequence name="Flash" from={24} durationInFrames={3}>
           <CutFlash />
         </Sequence>
       </Track>
@@ -53,12 +54,11 @@ const FirstBiteInner: React.FC = () => {
       <LowerTitle text="طعم يفرق" start={30} fontSize={150} star />
 
       <Track name="SFX">
-        <Audio name="Whoosh in" src={staticFile("whoosh.mp3")} volume={0.5} />
-        <Audio name="Bite" src={staticFile("bite.mp3")} from={2} volume={1} />
+        <Audio name="Bite" src={staticFile("bite.mp3")} from={1} volume={1} />
         <Audio
           name="Whoosh cut"
           src={staticFile("whoosh.mp3")}
-          from={18}
+          from={22}
           volume={0.4}
         />
         <Audio
