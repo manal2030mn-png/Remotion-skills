@@ -1,6 +1,13 @@
 {
   "version": 2,
   "skills": {
+    "conventional-commit": {
+      "source": "github/awesome-copilot",
+      "commit": "f10fdb8b2660ce85c98f220b2f1ca24653768a5c",
+      "sourceType": "github",
+      "skillPath": "skills/conventional-commit/SKILL.md",
+      "computedHash": "03c0c972e8d881f8d369f3bd4205761109feba7b770523c50bcba6f3c83e685f"
+    },
     "design-taste-frontend": {
       "source": "Leonxlnx/taste-skill",
       "commit": "f6b76575f949707b4e3c37cd86cb44b0b98643e8",
@@ -14,6 +21,48 @@
       "sourceType": "github",
       "skillPath": "skills/find-skills/SKILL.md",
       "computedHash": "7bc223e2aafbdbf6e50ea243ba6ef67fe432bb069ab439fea0390795dac0bf7f"
+    },
+    "git-commit": {
+      "source": "github/awesome-copilot",
+      "commit": "f10fdb8b2660ce85c98f220b2f1ca24653768a5c",
+      "sourceType": "github",
+      "skillPath": "skills/git-commit/SKILL.md",
+      "computedHash": "90716f49501831c6c0679509b295495021eae83923d6a39035ce7c2d9cd2e8f2"
+    },
+    "git-flow-branch-creator": {
+      "source": "github/awesome-copilot",
+      "commit": "f10fdb8b2660ce85c98f220b2f1ca24653768a5c",
+      "sourceType": "github",
+      "skillPath": "skills/git-flow-branch-creator/SKILL.md",
+      "computedHash": "dea69823bedd7be090328a01c60ecebf58d925e54ef43faf365e5c82246dfebd"
+    },
+    "github-actions-efficiency": {
+      "source": "github/awesome-copilot",
+      "commit": "f10fdb8b2660ce85c98f220b2f1ca24653768a5c",
+      "sourceType": "github",
+      "skillPath": "skills/github-actions-efficiency/SKILL.md",
+      "computedHash": "1e29703ead16150c7a746ba4eaba1680239636f3da1a616adf4a58b06943c874"
+    },
+    "github-actions-hardening": {
+      "source": "github/awesome-copilot",
+      "commit": "f10fdb8b2660ce85c98f220b2f1ca24653768a5c",
+      "sourceType": "github",
+      "skillPath": "skills/github-actions-hardening/SKILL.md",
+      "computedHash": "ce7df8e90622480a41ffae4a81c78dbf4de3a6965cc21a91693efdf15fb3284c"
+    },
+    "github-issues": {
+      "source": "github/awesome-copilot",
+      "commit": "f10fdb8b2660ce85c98f220b2f1ca24653768a5c",
+      "sourceType": "github",
+      "skillPath": "skills/github-issues/SKILL.md",
+      "computedHash": "2f264ec8b6728b145806031d0e98c3d6e076684bce64ca596be8e82d5495814a"
+    },
+    "github-release": {
+      "source": "github/awesome-copilot",
+      "commit": "f10fdb8b2660ce85c98f220b2f1ca24653768a5c",
+      "sourceType": "github",
+      "skillPath": "skills/github-release/SKILL.md",
+      "computedHash": "46b78cf4aeccb15c365214808c7841ea420fea53e811fc95a75755d03c8fa199"
     },
     "gsap-core": {
       "source": "greensock/gsap-skills",
@@ -70,6 +119,13 @@
       "sourceType": "github",
       "skillPath": "skills/gsap-utils/SKILL.md",
       "computedHash": "d05b56284eea0118d481b8c673aff27cae66199282995bfe78315785f561002d"
+    },
+    "pr-address-feedback": {
+      "source": "github/awesome-copilot",
+      "commit": "f10fdb8b2660ce85c98f220b2f1ca24653768a5c",
+      "sourceType": "github",
+      "skillPath": "skills/pr-address-feedback/SKILL.md",
+      "computedHash": "a3f044e6700e2974290b6b5e0ad08f0f805014d8bff304e4c2006cb1bcfe9847"
     },
     "remotion-best-practices": {
       "source": "remotion-dev/skills",
