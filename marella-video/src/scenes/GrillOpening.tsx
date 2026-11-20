@@ -1,98 +1,58 @@
 import { Audio } from "@remotion/media";
-import {
-  AbsoluteFill,
-  CanvasImage,
-  Easing,
-  Interactive,
-  interpolate,
-  staticFile,
-  useCurrentFrame,
-  useVideoConfig,
-} from "remotion";
-import { archPath, FRAME, TEAL } from "../brand";
-import { ArchFrame } from "../components/ArchFrame";
+import { AbsoluteFill, Interactive, Sequence, staticFile, Track } from "remotion";
+import { CutFlash } from "../components/CutFlash";
 import { FireGlow } from "../components/FireGlow";
+import { LowerTitle } from "../components/LowerTitle";
+import { Shot } from "../components/Shot";
 import { Sparks } from "../components/Sparks";
-import { Tagline } from "../components/Tagline";
 
-// The steak photo with a punch-in, slow push, light shake and fire flicker.
-const GrillShot: React.FC = () => {
-  const frame = useCurrentFrame();
-  const flicker = 1 + 0.06 * Math.sin(frame * 1.1) + 0.04 * Math.sin(frame * 3.7);
-  const shake = interpolate(frame, [0, 10], [1, 0], { extrapolateRight: "clamp" });
-
-  return (
-    <div
-      style={{
-        position: "absolute",
-        left: FRAME.left,
-        top: FRAME.apex,
-        width: FRAME.right - FRAME.left,
-        height: FRAME.bottom - FRAME.apex,
-        filter: `brightness(${flicker}) saturate(1.1) contrast(1.05)`,
-        translate: `${Math.sin(frame * 2.9) * 10 * shake}px ${Math.cos(frame * 3.3) * 8 * shake}px`,
-      }}
-    >
-      <CanvasImage
-        name="Steak photo"
-        src={staticFile("steak.png")}
-        fit="cover"
-        style={{
-          width: "100%",
-          height: "100%",
-          scale: interpolate(frame, [0, 10, 75], [1.45, 1.18, 1.3], {
-            extrapolateLeft: "clamp",
-            extrapolateRight: "clamp",
-            easing: Easing.bezier(0.22, 1, 0.36, 1),
-            output: "perceptual-scale",
-          }),
-          transformOrigin: "52% 62%",
-        }}
-      />
-    </div>
-  );
-};
-
+// Scene 1 (0–2.5 s): fast cuts on the grill, then "يبي لها من بدري ✦".
 const GrillOpeningInner: React.FC = () => {
-  const { fps, durationInFrames } = useVideoConfig();
-
   return (
     <>
-      {/* Everything inside the arch window */}
-      <AbsoluteFill style={{ clipPath: `path('${archPath(0)}')` }}>
-        <GrillShot />
-        <AbsoluteFill
-          style={{
-            background: `linear-gradient(180deg, ${TEAL}EE 0%, ${TEAL}55 22%, rgba(0,0,0,0) 40%, rgba(0,0,0,0) 80%, ${TEAL}AA 100%)`,
-          }}
-        />
-        <FireGlow />
-        <Sparks seed="inner" count={38} x={[120, 960]} y={1180} rise={900} />
-      </AbsoluteFill>
+      <Track name="Shots">
+        <Sequence name="Fire burst" durationInFrames={9}>
+          <Shot src={staticFile("crust.png")} length={9} zoom={[1.9, 1.55]} focus="12% 28%" pan={[30, 20]} tilt={[-4, -1]} />
+        </Sequence>
+        <Sequence name="Flames on the grate" from={9} durationInFrames={10}>
+          <Shot src={staticFile("crust.png")} length={10} zoom={[2.1, 2.4]} focus="18% 82%" pan={[-60, 0]} tilt={[3, 0]} />
+        </Sequence>
+        <Sequence name="Crust macro" from={19} durationInFrames={11}>
+          <Shot src={staticFile("crust.png")} length={11} zoom={[1.75, 1.4]} focus="62% 45%" pan={[0, -50]} tilt={[0, 2]} />
+        </Sequence>
+        <Sequence name="Patty pull-out" from={30} durationInFrames={45}>
+          <Shot src={staticFile("crust.png")} length={45} zoom={[1.3, 1.04]} focus="50% 45%" pan={[0, 20]} tilt={[-1.5, 0]} />
+        </Sequence>
+      </Track>
 
-      <ArchFrame />
-
-      {/* A few embers escape the frame for depth */}
-      <Sparks seed="outer" count={9} x={[180, 900]} y={700} rise={650} />
-
+      <FireGlow />
+      <Sparks seed="s1" count={46} x={[0, 1080]} y={1500} rise={1500} />
       <AbsoluteFill
         style={{
-          background: "radial-gradient(ellipse 85% 70% at 50% 45%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.45) 100%)",
+          background: "radial-gradient(ellipse 90% 75% at 50% 45%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.5) 100%)",
         }}
       />
 
-      <Tagline text="يبي لها من بدري" start={Math.round(0.55 * fps)} />
+      <Track name="Cut flashes">
+        <Sequence name="Flash 1" from={9} durationInFrames={3}>
+          <CutFlash />
+        </Sequence>
+        <Sequence name="Flash 2" from={19} durationInFrames={3}>
+          <CutFlash />
+        </Sequence>
+        <Sequence name="Flash 3" from={30} durationInFrames={3}>
+          <CutFlash />
+        </Sequence>
+      </Track>
 
-      <Audio
-        name="Grill sizzle"
-        src={staticFile("sizzle.mp3")}
-        volume={(f) =>
-          interpolate(f, [0, 3, durationInFrames - 10, durationInFrames], [0, 1, 1, 0], {
-            extrapolateLeft: "clamp",
-            extrapolateRight: "clamp",
-          })
-        }
-      />
+      <LowerTitle text="يبي لها من بدري" start={34} fontSize={124} star />
+
+      <Audio name="Grill sizzle" src={staticFile("sizzle.mp3")} volume={0.9} />
+      <Track name="Whooshes">
+        <Audio name="Whoosh 1" src={staticFile("whoosh.mp3")} from={7} volume={0.45} />
+        <Audio name="Whoosh 2" src={staticFile("whoosh.mp3")} from={17} volume={0.45} />
+        <Audio name="Whoosh 3" src={staticFile("whoosh.mp3")} from={28} volume={0.55} />
+      </Track>
     </>
   );
 };
