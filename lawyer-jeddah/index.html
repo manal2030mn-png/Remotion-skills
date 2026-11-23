@@ -191,7 +191,7 @@ section.block{padding-block:110px}
 .fees{background:var(--ink);color:#fff}
 .fees-in{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:60px;align-items:center;padding-block:100px}
 .fees-vid{position:relative;box-shadow:0 40px 80px -30px rgba(0,0,0,.8);border:1px solid rgba(220,193,138,.25)}
-.fees-vid video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;max-width:100%}
+.fees-vid img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;max-width:100%}
 .fees-txt{display:grid;gap:20px;justify-items:start}
 .fees-txt h2{color:#fff;font-size:clamp(1.9rem,3.4vw,2.6rem)}
 .fees-txt h2 span{display:block;color:var(--gold-hi)}
@@ -202,7 +202,7 @@ section.block{padding-block:110px}
 @media (max-width:900px){.fees-in{grid-template-columns:1fr;gap:40px;padding-block:70px}}
 /* banner */
 .banner{position:relative;color:#fff;overflow:hidden;background:var(--ink)}
-.banner video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.7}
+.banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.75}
 .banner::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,15,18,.05) 0%,rgba(14,15,18,.35) 40%,rgba(14,15,18,.92) 75%);z-index:1}
 .banner .wrap{position:relative;z-index:2;padding-block:120px;display:grid;justify-items:start;gap:22px;max-width:1220px}
 .banner blockquote{margin:0;font-family:var(--display);font-size:clamp(2rem,4.4vw,3.4rem);line-height:1.4;max-width:15em;color:#fff;font-weight:600}
@@ -489,7 +489,7 @@ footer .bottom .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;g
 <section class="fees">
   <div class="wrap fees-in">
     <div class="fees-vid">
-      <video autoplay muted loop playsinline poster="contract-poster.jpg" aria-label="توقيع عقد أتعاب باسم مرساة"><source src="contract-signing.mp4" type="video/mp4"></video>
+      <img src="contract.jpg" alt="توقيع عقد أتعاب في مقر شركة مرساة">
     </div>
     <div class="fees-txt">
       <span class="pill" style="color:var(--gold-hi);background:rgba(255,255,255,.06);border-color:rgba(220,193,138,.35)">الشفافية في الأتعاب</span>
@@ -506,7 +506,7 @@ footer .bottom .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;g
 </section>
 
 <section class="banner">
-  <video autoplay muted loop playsinline poster="library-poster.jpg" aria-hidden="true"><source src="library.mp4" type="video/mp4"></video>
+  <img src="library.jpg" alt="" loading="lazy">
   <div class="wrap">
     <span class="pill" style="color:var(--gold-hi);background:rgba(255,255,255,.06);border-color:rgba(220,193,138,.35)">رسالتنا</span>
     <blockquote>العدل أساس الثقة، والثقة أساس كل شراكة ناجحة.</blockquote>
