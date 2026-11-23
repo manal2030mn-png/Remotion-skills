@@ -3,7 +3,27 @@
 **المواصفات:** 16:9 · 1920×1080 · من 8 إلى 10 ثواني · بدون صوت · لقطة وحدة متصلة (عشان يتكرر بشكل ناعم)
 **صورة البداية (اختياري):** `hero.jpg` من هذا المجلد، أو صورة كانفا اللي فيها المحامية في الممر
 
-## البرومبت (إنجليزي — الأفضل لأدوات الفيديو)
+## ✦ نسخة الشخصية (البنت اللي في الصورة المرجعية)
+
+ارفعي **صورتين** في أداة الفيديو:
+1. `character-reference.jpg` كمرجع للشخصية (Character / Subject reference)
+2. `hero.jpg` كأول فريم (Start frame) لو الأداة تدعمه
+
+```
+Use the woman from the reference image as the main character — keep her exact face,
+dark grey hijab and black abaya, consistent throughout, no face drift or deformation.
+Slow cinematic tracking shot: she walks confidently down a luxury law office corridor
+with dark walnut wood panels and glass walls, holding a leather document folder.
+Halfway through she turns her head slightly and gives a calm, confident glance toward
+the camera, then keeps walking toward a floor-to-ceiling window overlooking the Jeddah
+Corniche, the Red Sea and King Fahd Fountain at golden hour.
+Warm sunlight, polished marble reflections, shallow depth of field, steady gimbal,
+photorealistic, premium and moody. She stays in the left third of the frame; the right
+side stays darker and empty for website text.
+No text, no logos, no distortion, no camera shake. 16:9, 8–10 seconds, seamless loop feel.
+```
+
+## البرومبت العام (بدون شخصية محددة)
 
 ```
 Slow cinematic tracking shot from behind, steady gimbal: a confident Saudi woman lawyer
