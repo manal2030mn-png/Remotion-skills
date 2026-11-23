@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ar" dir="ltr"><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=El+Messiri:wght@600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Cormorant+Garamond:wght@600&display=swap">
+<style>
+html,body{margin:0;width:1280px;height:720px;overflow:hidden;background:#1E150F}
+.cam{overflow:visible}
+body{position:fixed;inset:0}
+.desk{position:absolute;inset:-40px;background:url(desk.jpg) center/cover;filter:blur(16px) brightness(.55) saturate(.95)}
+.vig{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,transparent 35%,rgba(0,0,0,.65) 100%);z-index:5;pointer-events:none}
+.light{position:absolute;inset:0;background:radial-gradient(circle at 70% 20%,rgba(255,214,150,.18),transparent 55%);z-index:4;pointer-events:none}
+.cam{position:absolute;inset:0;transform-origin:50% 50%}
+.paper{position:absolute;left:50%;top:50%;width:560px;height:792px;margin:-396px 0 0 -280px;background:#FBF8F1;
+  box-shadow:0 40px 60px -20px rgba(0,0,0,.7),0 2px 0 rgba(0,0,0,.1);transform:rotate(-2.5deg);padding:34px 40px;box-sizing:border-box;font-family:"IBM Plex Sans Arabic";color:#2A2620;
+  background-image:linear-gradient(rgba(255,255,255,.0),rgba(240,232,214,.35))}
+.paper::before{content:"";position:absolute;inset:14px;border:1px solid #C9AE76;pointer-events:none}
+.hd{display:flex;justify-content:space-between;align-items:center;border-bottom:1.5px solid #B8924A;padding-bottom:10px}
+.logo{display:flex;align-items:center;gap:8px}
+.logo b{font-family:"El Messiri";font-size:22px;color:#14161A;line-height:1}
+.logo small{display:block;font-size:8.5px;color:#7A6A4C}
+.no{font-size:9px;color:#7A6A4C;text-align:left;line-height:1.6}
+h1{font-family:"El Messiri";font-size:25px;text-align:center;margin:16px 0 4px;color:#14161A}
+.sub{text-align:center;font-size:9.5px;color:#7A6A4C;margin-bottom:12px}
+.p{font-size:10px;line-height:1.85;margin:0 0 7px}
+.p b{color:#14161A}
+.cl{font-family:"El Messiri";font-size:11.5px;color:#8C6A2C;margin:10px 0 2px}
+.line{height:6px;background:repeating-linear-gradient(90deg,#D9D0BF 0 70%,transparent 70% 100%);margin:6px 0;opacity:.7;border-radius:2px}
+.fee{display:flex;justify-content:space-between;background:#F3EDE1;border:1px solid #E2D6BD;padding:7px 10px;font-size:10px;margin:6px 0}
+.fee span:last-child{font-weight:600;color:#14161A}
+.sigs{position:absolute;left:40px;right:40px;bottom:46px;display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.sig{border-top:1px solid #8C7A5A;padding-top:6px;font-size:9.5px;color:#6E6250;text-align:center;position:relative;height:96px}
+.sig .who{position:absolute;bottom:-4px;left:0;right:0}
+.sig .ink{position:absolute;left:0;right:0;top:-74px;text-align:center;font-family:"Aref Ruqaa";font-weight:700;font-size:50px;line-height:1;color:#12224A;letter-spacing:.5px}
+.sig .ink span{display:inline-block;clip-path:inset(0 0 0 100%)}
+.seal{position:absolute;width:64px;height:64px;left:auto;right:-6px;top:-92px;border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#F3DFA8,#C9A35B 45%,#8C6A2C 100%);box-shadow:0 4px 10px rgba(0,0,0,.35),inset 0 0 0 4px rgba(255,255,255,.25);display:grid;place-items:center;opacity:0;transform:scale(1.6) rotate(-20deg)}
+.seal::before{content:"";position:absolute;inset:8px;border-radius:50%;border:1px dashed rgba(60,40,10,.55)}
+.seal svg{width:32px;height:32px}
+.pen{position:absolute;width:300px;height:30px;transform-origin:2% 50%;z-index:3;opacity:0;pointer-events:none}
+.cap{position:absolute;left:0;right:0;bottom:44px;text-align:center;z-index:6;font-family:"Aref Ruqaa";font-weight:700;font-size:54px;color:#E9D3A0;text-shadow:0 4px 18px rgba(0,0,0,.6)}
+.cap span{display:inline-block;clip-path:inset(0 0 0 100%)}
+.capsub{position:absolute;left:0;right:0;bottom:22px;text-align:center;z-index:6;font-family:"Cormorant Garamond";letter-spacing:.35em;font-size:13px;color:rgba(233,211,160,.8);opacity:0}
+.shade{position:absolute;inset:0;z-index:5;background:linear-gradient(0deg,rgba(8,8,10,.85),transparent 45%);opacity:0}
+</style></head><body>
+<div class="desk"></div>
+<div class="cam" id="cam">
+  <div class="paper" id="paper" dir="rtl">
+    <div class="hd">
+      <div class="logo">
+        <svg width="34" height="34" viewBox="0 0 48 48" fill="none" stroke="#B8924A" stroke-width="1.8"><circle cx="24" cy="24" r="22" stroke-width="1"/><circle cx="24" cy="12" r="2.6"/><path d="M24 14.6V37M18 19h12M24 37c-6.5 0-10.5-3.6-11.5-8M24 37c6.5 0 10.5-3.6 11.5-8"/></svg>
+        <span><b>مِرساة</b><small>للمحاماة والاستشارات القانونية</small></span>
+      </div>
+      <div class="no">رقم العقد: م/٢٠٢٦/٠٤٧<br>التاريخ: ١٤٤٨/٠٥/٢٢هـ</div>
+    </div>
+    <h1>عقد أتعاب محاماة</h1>
+    <div class="sub">أُبرم هذا العقد بين الطرفين التاليين بكامل أهليتهما المعتبرة شرعًا ونظامًا</div>
+    <p class="p"><b>الطرف الأول:</b> شركة مرساة للمحاماة والاستشارات القانونية، ويمثلها الشريك المؤسس.</p>
+    <p class="p"><b>الطرف الثاني:</b> الموكِّل المبيّنة بياناته في ملحق هذا العقد.</p>
+    <div class="cl">البند الأول: موضوع العقد</div>
+    <p class="p">يتولى الطرف الأول تمثيل الطرف الثاني والترافع عنه في الدعوى محل هذا العقد أمام الجهات القضائية المختصة، ومتابعتها حتى صدور حكم نهائي.</p>
+    <div class="cl">البند الثاني: الأتعاب</div>
+    <div class="fee"><span>إجمالي أتعاب المحاماة المتفق عليها</span><span>وفق الملحق المالي</span></div>
+    <p class="p">تُدفع الأتعاب على دفعتين: الأولى عند توقيع العقد، والثانية عند صدور الحكم.</p>
+    <div class="cl">البند الثالث: السرية</div>
+    <p class="p">يلتزم الطرف الأول بالمحافظة على سرية جميع المعلومات والمستندات المقدمة إليه.</p>
+    <div class="line" style="width:92%"></div><div class="line" style="width:74%"></div>
+    <div class="sigs">
+      <div class="sig" id="sig1"><div class="ink"><span id="ink">مرساة</span></div><div class="seal" id="seal"><svg viewBox="0 0 48 48" fill="none" stroke="#3A2A0E" stroke-width="2"><circle cx="24" cy="12" r="2.6"/><path d="M24 14.6V37M18 19h12M24 37c-6.5 0-10.5-3.6-11.5-8M24 37c6.5 0 10.5-3.6 11.5-8"/></svg></div><span class="who">توقيع الطرف الأول</span></div>
+      <div class="sig"><span class="who">توقيع الطرف الثاني</span></div>
+    </div>
+  </div>
+  <svg class="pen" id="pen" viewBox="0 0 300 30">
+    <defs><linearGradient id="body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a3f48"/><stop offset=".45" stop-color="#0d0f12"/><stop offset="1" stop-color="#000"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3DFA8"/><stop offset=".5" stop-color="#C9A35B"/><stop offset="1" stop-color="#7a5a22"/></linearGradient></defs>
+    <path d="M2 15 L26 9 L26 21 Z" fill="url(#gold)"/>
+    <rect x="26" y="7" width="40" height="16" rx="3" fill="url(#body)"/>
+    <rect x="64" y="6" width="8" height="18" fill="url(#gold)"/>
+    <rect x="72" y="5" width="210" height="20" rx="9" fill="url(#body)"/>
+    <rect x="150" y="3" width="6" height="24" fill="url(#gold)"/>
+  </svg>
+</div>
+<div class="light"></div>
+<div class="shade" id="shade"></div>
+<div class="vig"></div>
+<div class="cap" dir="rtl"><span id="cap">اتفاقٌ واضح… والتزامٌ موقَّع.</span></div>
+<div class="capsub" id="capsub">MIRSAH LAW FIRM</div>
+<script>
+const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+const seg=(t,a,b)=>clamp((t-a)/(b-a),0,1);
+function setT(t){
+  // camera: 0-1s settle, 1-2.2s push toward signature, hold, 4.6-6 pull back a little
+  const push=ease(seg(t,.6,2.2)), back=ease(seg(t,4.4,6));
+  const cam=document.getElementById('cam');
+  if(!window.__P){cam.style.transform='none';const r=document.getElementById('sig1').getBoundingClientRect();window.__P={x:r.left+r.width/2,y:r.top-30};}
+  const P=window.__P, C={x:640,y:360};
+  const s=1.0+ .75*push - .35*back;
+  const tgt={x:640+0*push, y:360+20*push - 60*back};
+  const k=push*(1-.55*back);
+  const tx=k*(tgt.x - C.x - s*(P.x-C.x)) , ty=k*(tgt.y - C.y - s*(P.y-C.y));
+  cam.style.transform=`translate(${tx}px,${ty}px) scale(${s})`;
+  // signature reveal (right -> left)
+  const w=seg(t,2.3,3.9);
+  const ink=document.getElementById('ink');
+  ink.style.clipPath=`inset(-20px 0 -20px ${100-100*w}%)`;
+  // pen follows the reveal edge
+  const pen=document.getElementById('pen');
+  const camR=cam.getBoundingClientRect();
+  const camS=s;
+  const pr=ink.getBoundingClientRect();
+  const x=pr.right-(pr.width)*w, y=pr.top+pr.height*(.55+.18*Math.sin(w*Math.PI*5));
+  const pOn=seg(t,1.9,2.3)*(1-seg(t,4.0,4.5));
+  pen.style.opacity=pOn;
+  // convert to cam-local coordinates
+  const lx=(x-camR.left)/camS, ly=(y-camR.top)/camS;
+  const lift=(1-seg(t,1.9,2.3))*-60 + seg(t,4.0,4.5)*-80;
+  pen.style.left=lx+'px'; pen.style.top=(ly-15+lift)+'px';
+  pen.style.transform=`rotate(${-28+4*Math.sin(t*9)}deg)`;
+  // seal stamp
+  const sp=seg(t,4.05,4.45), seal=document.getElementById('seal');
+  const bounce=sp<1? 1.6-0.65*ease(sp) : 0.95+0.05*seg(t,4.45,4.6);
+  seal.style.opacity=sp>0?Math.min(1,sp*3):0;
+  seal.style.transform=`scale(${bounce}) rotate(${-20+20*ease(sp)}deg)`;
+  // caption write-on
+  document.getElementById('shade').style.opacity=ease(seg(t,4.6,5.4));
+  const c=seg(t,5.0,6.4);
+  document.getElementById('cap').style.clipPath=`inset(-20px 0 -20px ${100-100*c}%)`;
+  document.getElementById('capsub').style.opacity=ease(seg(t,6.2,6.9));
+}
+setT(0);
+</script>
+</body></html>

@@ -186,6 +186,20 @@ section.block{padding-block:110px}
 @media (max-width:960px){.services{grid-template-columns:1fr 1fr}}
 @media (max-width:600px){.services{grid-template-columns:1fr}}
 
+
+/* fees */
+.fees{background:var(--ink);color:#fff}
+.fees-in{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:60px;align-items:center;padding-block:100px}
+.fees-vid{position:relative;box-shadow:0 40px 80px -30px rgba(0,0,0,.8);border:1px solid rgba(220,193,138,.25)}
+.fees-vid video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;max-width:100%}
+.fees-txt{display:grid;gap:20px;justify-items:start}
+.fees-txt h2{color:#fff;font-size:clamp(1.9rem,3.4vw,2.6rem)}
+.fees-txt h2 span{display:block;color:var(--gold-hi)}
+.fees-txt p{color:rgba(255,255,255,.75)}
+.fees-txt ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.fees-txt li{display:flex;gap:12px;align-items:center}
+.fees-txt li::before{content:"✓";width:26px;height:26px;display:grid;place-items:center;border:1px solid rgba(220,193,138,.45);color:var(--gold-hi);font-size:.8rem;flex:none}
+@media (max-width:900px){.fees-in{grid-template-columns:1fr;gap:40px;padding-block:70px}}
 /* banner */
 .banner{position:relative;color:#fff;overflow:hidden;background:var(--ink)}
 .banner img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.45}
@@ -468,6 +482,25 @@ footer .bottom .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;g
         <ul><li>التحكيم التجاري المحلي والدولي</li><li>الوساطة والتوفيق</li><li>صياغة شروط التحكيم</li><li>تنفيذ أحكام التحكيم</li></ul>
         <a href="#contact"><span>طلب تسوية نزاع</span><span>←</span></a>
       </article>
+    </div>
+  </div>
+</section>
+
+<section class="fees">
+  <div class="wrap fees-in">
+    <div class="fees-vid">
+      <video autoplay muted loop playsinline poster="contract-poster.jpg" aria-label="توقيع عقد أتعاب باسم مرساة"><source src="contract-signing.mp4" type="video/mp4"></video>
+    </div>
+    <div class="fees-txt">
+      <span class="pill" style="color:var(--gold-hi);background:rgba(255,255,255,.06);border-color:rgba(220,193,138,.35)">الشفافية في الأتعاب</span>
+      <h2>أتعاب واضحة،<span>وعقد مكتوب قبل أن نبدأ.</span></h2>
+      <p>لا نبدأ العمل على أي ملف إلا بعقد أتعاب موقّع يحدد نطاق الخدمة والمبلغ وطريقة الدفع، حتى تعرف كل شيء من اليوم الأول.</p>
+      <ul>
+        <li>عقد أتعاب رسمي باسم الشركة</li>
+        <li>مبلغ محدد ودفعات واضحة</li>
+        <li>لا رسوم مخفية ولا مفاجآت</li>
+      </ul>
+      <a class="btn btn-gold" href="#contact">اطلب عرض أتعاب ←</a>
     </div>
   </div>
 </section>
