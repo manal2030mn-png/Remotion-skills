@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ar" dir="ltr"><head><meta charset="utf-8">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=El+Messiri:wght@500;600;700&family=Reem+Kufi:wght@500;600&display=swap">
+<style>
+html,body{margin:0;width:1280px;height:720px;overflow:hidden;background:#140D08}
+body{position:fixed;inset:0}
+.wall{position:absolute;top:0;left:0;height:720px;width:2300px;transform-origin:0 50%;
+  background:linear-gradient(90deg,#2a1a10,#3a2516 30%,#2c1b11 60%,#3b2617 85%,#2a1a10);}
+.wall::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(0,0,0,.08) 0 3px,transparent 3px 9px),repeating-linear-gradient(90deg,rgba(255,200,140,.03) 0 1px,transparent 1px 23px)}
+.shelf{position:absolute;left:0;right:0;display:flex;align-items:flex-end;gap:3px;padding-left:40px}
+.board{position:absolute;left:0;right:0;height:26px;background:linear-gradient(#5a3a22,#3b2414 60%,#24160c);box-shadow:0 14px 22px rgba(0,0,0,.6)}
+.board::before{content:"";position:absolute;inset:0 0 auto;height:3px;background:rgba(255,210,160,.18)}
+.b{position:relative;flex:none;border-radius:3px 3px 1px 1px;box-shadow:inset 6px 0 10px rgba(255,255,255,.08),inset -8px 0 12px rgba(0,0,0,.45),2px 0 3px rgba(0,0,0,.5);
+  display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:18px 0 14px;box-sizing:border-box;overflow:hidden}
+.b::before,.b::after{content:"";position:absolute;left:0;right:0;height:10px;border-top:1.5px solid var(--g);border-bottom:1.5px solid var(--g);opacity:.85}
+.b::before{top:26px}.b::after{bottom:30px}
+.b .t{writing-mode:vertical-rl;font-family:"Amiri";font-weight:700;color:var(--g);white-space:nowrap;line-height:1.05;text-shadow:0 1px 0 rgba(0,0,0,.5);margin-top:44px;flex:1;display:flex;align-items:center;justify-content:center;text-align:center}
+.b .a{writing-mode:vertical-rl;font-family:"Amiri";font-size:11px;color:var(--g);opacity:.85;white-space:nowrap;margin-bottom:46px}
+.b .v{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-family:"Amiri";font-weight:700;font-size:15px;color:var(--g)}
+.b .lab{position:absolute;top:44px;left:6px;right:6px;height:3px;background:var(--g);opacity:.0}
+.st{--g:#14583E}
+.st .t{font-family:"El Messiri";font-weight:600}
+.bookend{width:36px;height:150px;background:linear-gradient(90deg,#8a6a2c,#f1dda8 45%,#b8924a 60%,#7a5a22);border-radius:4px 4px 0 0;box-shadow:3px 4px 8px rgba(0,0,0,.6);flex:none;align-self:flex-end;margin:0 18px}
+.plant{width:170px;flex:none;margin:0 22px;align-self:flex-end;display:flex;flex-direction:column;align-items:center;gap:1px}
+.plant i{display:block;height:30px;border-radius:2px;box-shadow:inset 0 6px 8px rgba(255,255,255,.08),inset 0 -6px 8px rgba(0,0,0,.4),0 2px 3px rgba(0,0,0,.5);border-left:6px solid #E9E2D0}
+.plant em{display:block;width:44px;height:44px;border-radius:50%;margin-bottom:2px;background:radial-gradient(circle at 35% 30%,#f1dda8,#b8924a 50%,#6a4c18)}
+.light{position:absolute;inset:0;z-index:5;pointer-events:none;background:radial-gradient(ellipse 50% 70% at var(--lx,60%) 30%,rgba(255,206,140,.30),transparent 70%)}
+.vig{position:absolute;inset:0;z-index:6;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,transparent 45%,rgba(0,0,0,.7) 100%)}
+.dust{position:absolute;inset:0;z-index:5;pointer-events:none}
+.fg{position:absolute;z-index:7;bottom:-30px;width:420px;height:420px;filter:blur(9px);opacity:.9}
+</style></head><body>
+<div class="wall" id="wall">
+  <div class="shelf" id="s1" style="bottom:392px"></div>
+  <div class="board" style="top:328px"></div>
+  <div class="shelf" id="s2" style="bottom:44px"></div>
+  <div class="board" style="top:676px"></div>
+</div>
+<canvas class="dust" id="dust" width="1280" height="720"></canvas>
+<div class="light" id="light"></div>
+<svg class="fg" id="fg" viewBox="0 0 400 400"><defs><linearGradient id="gg" x1="0" x2="1"><stop offset="0" stop-color="#7a5a22"/><stop offset=".5" stop-color="#f1dda8"/><stop offset="1" stop-color="#8a6a2c"/></linearGradient></defs>
+  <g fill="none" stroke="url(#gg)" stroke-width="9"><path d="M200 60v300M90 110h220M90 110l-50 110h100zM310 110l-50 110h100zM140 360h120"/></g>
+  <path d="M40 220a50 22 0 0 0 100 0zM260 220a50 22 0 0 0 100 0z" fill="url(#gg)"/></svg>
+<div class="vig"></div>
+<script>
+// [title, author, vol, color, gold, width, height, fontSize]
+const LEATHER={green:'#1F3A2C',maroon:'#4A1518',navy:'#17223A',brown:'#4A2E18',black:'#141414',tan:'#7A5A36',wine:'#3A1020'};
+const G='#D8B56A';
+const s1=[
+ ['الكافي في شرح نظام المعاملات المدنية السعودي','د. عبدالرحمن المخضوب','١','green',G,72,300,17],
+ ['الكافي في شرح نظام المعاملات المدنية السعودي','د. عبدالرحمن المخضوب','٢','green',G,72,300,17],
+ ['الكافي في شرح نظام المعاملات المدنية السعودي','د. عبدالرحمن المخضوب','٣','green',G,72,300,17],
+ ['الكافي في شرح نظام المعاملات المدنية السعودي','د. عبدالرحمن المخضوب','٤','green',G,72,300,17],
+ ['bookend'],
+ ['شرح نظام الإثبات','مركز البحوث بوزارة العدل','','navy',G,66,284,22],
+ ['الوسيط في شرح نظام المرافعات الشرعية','أحمد مخلوف','','maroon',G,62,292,17],
+ ['الواضح في شرح وسائل الإثبات','د. منذر القضاة','','brown',G,56,270,17],
+ ['نظام المرافعات الشرعية ولوائحه التنفيذية','الجمعية العلمية القضائية','','black',G,58,296,15],
+ ['plant'],
+ ['المغني','ابن قدامة','١','wine',G,64,306,30],
+ ['المغني','ابن قدامة','٢','wine',G,64,306,30],
+ ['المغني','ابن قدامة','٣','wine',G,64,306,30],
+ ['المغني','ابن قدامة','٤','wine',G,64,306,30],
+ ['المغني','ابن قدامة','٥','wine',G,64,306,30],
+ ['bookend'],
+ ['كشاف القناع عن متن الإقناع','البهوتي','١','brown',G,60,296,18],
+ ['كشاف القناع عن متن الإقناع','البهوتي','٢','brown',G,60,296,18],
+ ['كشاف القناع عن متن الإقناع','البهوتي','٣','brown',G,60,296,18],
+];
+const st=t=>[t,'هيئة الخبراء بمجلس الوزراء','','st',null,40,250,15];
+const s2=[
+ ['الشرح الممتع على زاد المستقنع','ابن عثيمين','١','green',G,58,292,17],
+ ['الشرح الممتع على زاد المستقنع','ابن عثيمين','٢','green',G,58,292,17],
+ ['الشرح الممتع على زاد المستقنع','ابن عثيمين','٣','green',G,58,292,17],
+ ['الشرح الممتع على زاد المستقنع','ابن عثيمين','٤','green',G,58,292,17],
+ ['bookend'],
+ st('نظام المعاملات المدنية'),st('نظام الإثبات'),st('نظام الأحوال الشخصية'),st('نظام المرافعات الشرعية'),st('نظام الشركات'),st('نظام المحاكم التجارية'),st('نظام العمل'),st('نظام التحكيم'),st('نظام الإفلاس'),st('نظام التنفيذ'),
+ ['plant'],
+ ['الكافي في شرح نظام المعاملات المدنية السعودي','د. عبدالرحمن المخضوب','١','green',G,72,300,17],
+ ['الكافي في شرح نظام المعاملات المدنية السعودي','د. عبدالرحمن المخضوب','٢','green',G,72,300,17],
+ ['الوسيط في شرح نظام المرافعات الشرعية','أحمد مخلوف','','maroon',G,62,292,17],
+ ['شرح نظام الإثبات','مركز البحوث بوزارة العدل','','navy',G,66,284,22],
+ ['المغني','ابن قدامة','٦','wine',G,64,306,30],
+ ['المغني','ابن قدامة','٧','wine',G,64,306,30],
+];
+function build(id,list){
+  const el=document.getElementById(id);
+  list.forEach(b=>{
+    if(b[0]==='bookend'){const d=document.createElement('div');d.className='bookend';el.appendChild(d);return}
+    if(b[0]==='plant'){const d=document.createElement('div');d.className='plant';d.innerHTML='<em></em><i style="width:150px;background:#4A1518"></i><i style="width:162px;background:#17223A"></i><i style="width:170px;background:#1F3A2C"></i>';el.appendChild(d);return}
+    const [t,a,v,c,g,w,h,fs]=b;
+    const d=document.createElement('div');d.className='b'+(c==='st'?' st':'');
+    d.style.width=w+'px';d.style.height=h+'px';
+    if(c==='st'){d.style.background='linear-gradient(90deg,#E9E2D0,#F6F1E4 40%,#DCD3BE)';d.style.setProperty('--g','#14583E')}
+    else{d.style.background=`linear-gradient(90deg,${LEATHER[c]} 0%, color-mix(in srgb,${LEATHER[c]} 70%,#fff 8%) 35%, ${LEATHER[c]} 70%, color-mix(in srgb,${LEATHER[c]} 80%,#000) 100%)`;d.style.setProperty('--g',g)}
+    d.innerHTML=`<span class="t" style="font-size:${fs}px">${t}</span><span class="a">${a}</span>`+(v?`<span class="v">${v}</span>`:'');
+    el.appendChild(d);
+  });
+}
+build('s1',s1);build('s2',s2);
+// dust
+const cv=document.getElementById('dust'),cx=cv.getContext('2d');
+const P=[...Array(90)].map((_,i)=>({x:(i*137.5)%1280,y:(i*89.3)%720,r:.6+((i*7)%10)/8,s:.2+((i*13)%10)/25}));
+const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+const D=9;
+function setT(t){
+  const p=t/D;
+  const x=-40-560*ease(p);
+  const sc=1.0+0.03*Math.sin(p*Math.PI);
+  document.getElementById('wall').style.transform=`translate(${x}px,14px) scale(${sc})`;
+  document.getElementById('light').style.setProperty('--lx',(30+40*p)+'%');
+  document.getElementById('fg').style.transform=`translateX(${1000-1500*ease(p)}px)`;
+  cx.clearRect(0,0,1280,720);
+  P.forEach(q=>{const yy=(q.y - t*18*q.s+720)%720, xx=(q.x + t*8*q.s + Math.sin(t+q.y)*6)%1280;
+    const a=Math.max(0,1-Math.hypot(xx-1280*(.3+.4*p),yy-220)/520)*.55;
+    cx.fillStyle=`rgba(255,220,170,${a})`;cx.beginPath();cx.arc(xx,yy,q.r,0,7);cx.fill();});
+}
+setT(0);
+</script></body></html>
