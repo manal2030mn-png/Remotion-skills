@@ -2,218 +2,281 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Cormorant+Garamond:wght@500;600&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&display=swap">
 <style>
-/* Layout: cinematic dark hero over a Red Sea office scene, then warm stone pages with deep sea-green panels; right-to-left. */
+/* Layout: Old-Jeddah luxury — Red Sea night teal, champagne brass, pearl pages; roshan lattice and Hijazi arches as the recurring motifs. Deliberate single look (dark + pearl bands), not theme-switched. */
 :root{
-  --stone:#F2F0EA;
-  --card:#FBFAF7;
-  --ink:#1A2320;
-  --muted:#66726D;
-  --line:#DDD9CF;
-  --green:#17483B;
-  --green-ink:#17483B;
-  --gold:#C9A24E;
-  --gold-ink:#9B7A2E;
-  --chip:#E8E4D9;
-  --display:"Alexandria","IBM Plex Sans Arabic","Segoe UI",Tahoma,sans-serif;
-  --body:"IBM Plex Sans Arabic","Segoe UI",Tahoma,system-ui,sans-serif;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --stone:#101614;--card:#171F1C;--ink:#E5EAE7;--muted:#9BA8A2;--line:#2A3430;
-    --green:#1D5A4A;--green-ink:#8CC7B3;--gold:#D3AE5F;--gold-ink:#D3AE5F;--chip:#222C28;
-    color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --stone:#101614;--card:#171F1C;--ink:#E5EAE7;--muted:#9BA8A2;--line:#2A3430;
-  --green:#1D5A4A;--green-ink:#8CC7B3;--gold:#D3AE5F;--gold-ink:#D3AE5F;--chip:#222C28;
-  color-scheme:dark;
+  --night:#0B1315;
+  --sea:#0F2B2F;
+  --sea-2:#14373C;
+  --pearl:#F3F1EC;
+  --pearl-2:#E9E5DC;
+  --ink:#141B1C;
+  --muted:#5F6C6B;
+  --mist:#9DB0AE;
+  --gold:#C6A665;
+  --gold-hi:#E7D3A1;
+  --gold-lo:#8E7238;
+  --line-d:rgba(198,166,101,.22);
+  --line-l:#D9D3C6;
+  --display:"Amiri","Traditional Arabic",serif;
+  --body:"IBM Plex Sans Arabic","Segoe UI",Tahoma,sans-serif;
+  --script:"Aref Ruqaa","Amiri",serif;
+  --latin:"Cormorant Garamond","Times New Roman",serif;
+  color-scheme:light;
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--stone);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.85}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:20;background:#0B1210}
-.wrap{max-width:1160px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-h1,h2,h3{font-family:var(--display);line-height:1.4;margin:0;text-wrap:balance}
+body{margin:0;overflow-x:clip;background:var(--pearl);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.9;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--night)}
+.wrap{max-width:1200px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.35;margin:0;text-wrap:balance}
 p{margin:0}
 a{color:inherit}
-:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+:focus-visible{outline:1.5px solid var(--gold);outline-offset:4px}
+.lat{font-family:var(--latin);letter-spacing:.18em;text-transform:uppercase;direction:ltr;unicode-bidi:isolate}
 
-.pill{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:600;padding:4px 14px;background:var(--chip);color:var(--green-ink);border-radius:2px}
-.pill::before{content:"";width:14px;border-top:1.5px solid currentColor}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:600 .92rem var(--body);padding:12px 24px;border-radius:2px;border:1px solid transparent;text-decoration:none;cursor:pointer;transition:transform .2s,background .2s,color .2s}
-.btn:hover{transform:translateY(-2px)}
-.btn-gold{background:var(--gold);color:#1A1407}
-.btn-line{border-color:rgba(255,255,255,.4);color:#fff;background:rgba(0,0,0,.25)}
-.btn-green{background:var(--green);color:#fff}
-.arrow{font-family:var(--body)}
+/* roshan lattice texture */
+.roshan{background-image:
+  repeating-linear-gradient(45deg,var(--line-d) 0 1px,transparent 1px 22px),
+  repeating-linear-gradient(-45deg,var(--line-d) 0 1px,transparent 1px 22px)}
+
+.eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:.82rem;font-weight:500;color:var(--gold-lo)}
+.eyebrow::before{content:"";width:8px;height:8px;border:1px solid currentColor;transform:rotate(45deg)}
+.dark .eyebrow{color:var(--gold)}
+.h2{font-size:clamp(2rem,4vw,3.1rem)}
+.h2 em{font-style:normal;color:var(--gold-lo)}
+.dark .h2 em{color:var(--gold)}
+
+.btn{position:relative;display:inline-flex;align-items:center;gap:12px;font:500 .95rem var(--body);padding:14px 28px;text-decoration:none;cursor:pointer;border:1px solid var(--gold);transition:color .35s,background .35s;overflow:hidden;isolation:isolate}
+.btn::after{content:"";position:absolute;inset:0;background:var(--gold-hi);transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.7,0,.2,1);z-index:-1}
+.btn:hover::after{transform:scaleX(1)}
+.btn-gold{background:var(--gold);color:var(--night)}
+.btn-ghost{background:transparent;color:var(--pearl);border-color:rgba(231,211,161,.45)}
+.btn-ghost:hover{color:var(--night)}
+.btn-dark{background:var(--sea);color:var(--pearl);border-color:var(--sea)}
+.btn-dark:hover{color:var(--night)}
 
 /* header */
-.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;transition:background .3s,box-shadow .3s;color:#fff}
-.top.solid{background:var(--card);color:var(--ink);box-shadow:0 1px 0 var(--line)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:14px}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none}
-.brand b{font-family:var(--display);font-size:1.15rem;display:block;line-height:1.2}
-.brand small{font-size:.68rem;opacity:.75}
-.nav{display:flex;gap:26px;font-size:.9rem}
-.nav a{text-decoration:none;opacity:.85}
-.nav a:hover{opacity:1;color:var(--gold)}
-.top .btn{padding:9px 18px;font-size:.85rem}
-.top:not(.solid) .btn{background:transparent;border-color:rgba(255,255,255,.45);color:#fff}
-@media (max-width:900px){.nav{display:none}}
+.top{position:fixed;top:env(safe-area-inset-top,0px);inset-inline:0;z-index:25;color:var(--pearl);transition:background .4s,padding .4s,border-color .4s;border-bottom:1px solid transparent}
+.top.solid{background:rgba(11,19,21,.92);backdrop-filter:blur(10px);border-color:var(--line-d)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:18px}
+.top.solid .wrap{padding-block:12px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand .mark{width:40px;height:46px;flex:none}
+.brand b{font-family:var(--display);font-size:1.35rem;display:block;line-height:1.1}
+.brand small{font-size:.68rem;color:var(--mist);letter-spacing:.02em}
+.nav{display:flex;gap:30px;font-size:.9rem}
+.nav a{text-decoration:none;color:rgba(243,241,236,.78);position:relative;padding-block:4px}
+.nav a::after{content:"";position:absolute;inset:auto 0 0;height:1px;background:var(--gold);transform:scaleX(0);transition:transform .3s}
+.nav a:hover{color:var(--gold-hi)}.nav a:hover::after{transform:scaleX(1)}
+.top .btn{padding:10px 20px;font-size:.85rem}
+@media (max-width:960px){.nav{display:none}}
+@media (max-width:480px){.brand small{display:none}.top .btn{padding:9px 14px}}
 
 /* hero */
-.hero{position:relative;margin-top:-72px;min-height:min(92vh,760px);display:grid;align-items:center;color:#fff;overflow:hidden;background:#0B1210}
-.hero-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
-@media (max-width:640px){.hero-media{object-position:28% center}}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(270deg,rgba(6,12,10,.88) 0%,rgba(6,12,10,.6) 45%,rgba(6,12,10,.15) 100%),linear-gradient(0deg,rgba(6,12,10,.7),transparent 35%)}
-.hero .wrap{position:relative;z-index:1;width:100%;padding-block:150px 110px}
-.hero-copy{max-width:560px}
-.kicker{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--gold)}
-.kicker::before{content:"";width:28px;border-top:1px solid var(--gold)}
-.hero h1{font-size:clamp(2.3rem,5.6vw,4.2rem);font-weight:700;margin-top:14px;line-height:1.3}
-.hero h1 span{color:var(--gold);display:block}
-.hero .lede{margin-top:18px;color:rgba(255,255,255,.82);font-size:1.05rem;max-width:32em}
-.hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
-.hero-foot{position:absolute;inset:auto 0 0;z-index:1}
-.hero-foot .wrap{display:flex;justify-content:space-between;gap:16px;padding-block:0 22px;font-size:.78rem;color:rgba(255,255,255,.7)}
-.reveal{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
-.reveal:nth-child(2){animation-delay:.12s}.reveal:nth-child(3){animation-delay:.24s}.reveal:nth-child(4){animation-delay:.36s}
-@keyframes rise{from{opacity:.001;transform:translateY(18px)}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:reduce){.reveal{animation:none}html{scroll-behavior:auto}.btn:hover{transform:none}}
-@media (max-width:640px){.hero .wrap{padding-block:130px 90px}.hero-foot .wrap span:last-child{display:none}}
+.hero{position:relative;min-height:min(100vh,860px);display:grid;align-items:end;color:var(--pearl);background:var(--night);overflow:hidden;margin-top:calc(-1 * env(safe-area-inset-top,0px))}
+.hero-media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.06);animation:settle 7s ease-out forwards}
+@keyframes settle{to{transform:scale(1)}}
+@media (max-width:720px){.hero-media{object-position:26% center}}
+.hero::before{content:"";position:absolute;inset:0;z-index:1;background:
+  linear-gradient(270deg,rgba(11,19,21,.96) 0%,rgba(11,19,21,.78) 38%,rgba(11,19,21,.2) 70%,rgba(11,19,21,.35) 100%),
+  linear-gradient(0deg,rgba(11,19,21,.95) 0%,transparent 40%)}
+.hero .lattice{position:absolute;z-index:1;top:0;bottom:0;inset-inline-start:0;width:min(34vw,420px);opacity:.55;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 60%);mask-image:linear-gradient(90deg,transparent,#000 60%)}
+[dir="rtl"] .hero .lattice{-webkit-mask-image:linear-gradient(270deg,transparent,#000 60%);mask-image:linear-gradient(270deg,transparent,#000 60%)}
+.hero .frame{position:absolute;z-index:1;inset:96px max(16px,4vw) 28px;border:1px solid rgba(198,166,101,.18);pointer-events:none}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-block:170px 64px;display:grid;grid-template-columns:minmax(0,1fr);gap:40px;align-items:end}
+.hero-copy{max-width:620px}
+.est{color:var(--gold);font-size:.78rem}
+.hero h1{font-size:clamp(2.6rem,6.4vw,5.3rem);line-height:1.18;margin-top:18px;font-weight:700}
+.hero h1 .gold{background:linear-gradient(100deg,var(--gold-lo),var(--gold-hi) 45%,var(--gold) 70%);-webkit-background-clip:text;background-clip:text;color:transparent;display:block}
+.hero .lede{margin-top:22px;color:rgba(243,241,236,.78);font-size:1.06rem;max-width:33em;font-weight:300}
+.hero .actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.slot{justify-self:start;align-self:end;width:min(100%,330px);background:rgba(11,19,21,.55);backdrop-filter:blur(14px);border:1px solid var(--line-d);padding:22px 24px;display:grid;gap:10px}
+.slot .k{font-size:.75rem;color:var(--mist)}
+.slot b{font-family:var(--display);font-size:1.35rem;color:var(--gold-hi);font-weight:400}
+.slot .dots{display:flex;gap:8px;align-items:center;font-size:.82rem;color:rgba(243,241,236,.8)}
+.slot .dots i{width:7px;height:7px;border-radius:50%;background:#6FCF97;box-shadow:0 0 0 4px rgba(111,207,151,.15)}
+.slot hr{border:0;border-top:1px solid var(--line-d);margin:4px 0}
+.slot ul{list-style:none;margin:0;padding:0;display:grid;gap:4px;font-size:.84rem;color:rgba(243,241,236,.8)}
+.slot li{display:flex;justify-content:space-between;gap:10px}
+.slot li span:last-child{color:var(--gold)}
+.hero-foot{position:relative;z-index:2;border-top:1px solid var(--line-d)}
+.hero-foot .wrap{display:flex;justify-content:space-between;gap:20px;padding-block:16px;font-size:.78rem;color:var(--mist);grid-template-columns:none}
+.rise{animation:rise 1.1s cubic-bezier(.2,.7,.2,1) both}
+.rise.d1{animation-delay:.15s}.rise.d2{animation-delay:.3s}.rise.d3{animation-delay:.45s}.rise.d4{animation-delay:.65s}
+@keyframes rise{from{opacity:.001;transform:translateY(24px)}to{opacity:1;transform:none}}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr;padding-block:140px 40px}.slot{justify-self:stretch;width:auto}.hero .frame{display:none}}
+@media (max-width:560px){.hero-foot .wrap span:nth-child(2){display:none}}
+@media (prefers-reduced-motion:reduce){.rise,.hero-media{animation:none;transform:none}.marquee .track{animation:none}html{scroll-behavior:auto}.btn::after{transition:none}}
 
-/* stats */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;padding-block:44px;border-bottom:1px solid var(--line)}
-.stat{display:flex;align-items:center;gap:14px}
-.stat i{width:42px;height:42px;display:grid;place-items:center;background:var(--chip);color:var(--green-ink);font-style:normal;flex:none}
-.stat b{font-family:var(--display);font-size:1.9rem;color:var(--gold-ink);line-height:1;font-variant-numeric:tabular-nums}
-.stat small{display:block;color:var(--muted);font-size:.82rem}
-@media (max-width:760px){.stats{grid-template-columns:1fr 1fr}}
+/* marquee */
+.marquee{background:var(--sea);color:var(--gold-hi);overflow:hidden;border-block:1px solid var(--line-d)}
+.marquee .track{display:flex;gap:48px;width:max-content;padding-block:18px;animation:slide 38s linear infinite;font-family:var(--display);font-size:1.25rem}
+.marquee span{display:flex;align-items:center;gap:48px;white-space:nowrap}
+.marquee span::after{content:"";width:7px;height:7px;border:1px solid var(--gold);transform:rotate(45deg)}
+@keyframes slide{to{transform:translateX(50%)}}
 
-section.block{padding-block:96px}
-.center{text-align:center;display:grid;justify-items:center;gap:14px;margin-bottom:48px}
-.center p{color:var(--muted);max-width:40em}
-h2.title{font-size:clamp(1.9rem,3.6vw,2.6rem);font-weight:700}
-h2.title span{display:block;color:var(--green-ink)}
-@media (max-width:760px){section.block{padding-block:68px}}
+/* sections */
+section.block{padding-block:110px}
+@media (max-width:760px){section.block{padding-block:72px}}
+.dark{background:var(--night);color:var(--pearl)}
+.sea{background:var(--sea);color:var(--pearl)}
 
 /* about */
-.about{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.about-text{display:grid;gap:18px;justify-items:start}
-.quote{background:var(--card);border-inline-start:3px solid var(--green);padding:16px 20px;font-weight:600;box-shadow:0 10px 30px -20px rgba(0,0,0,.3)}
+.about{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:72px;align-items:center}
+.arch{position:relative;max-width:470px;width:100%;justify-self:center}
+.arch .img{aspect-ratio:4/5;max-width:100%;border-radius:999px 999px 0 0;overflow:hidden;background:var(--sea)}
+.arch .img img{width:100%;height:100%;object-fit:cover;display:block}
+.arch::before{content:"";position:absolute;inset:-16px -16px 16px 16px;border:1px solid var(--gold);border-radius:999px 999px 0 0;z-index:-1}
+.arch .badge{position:absolute;bottom:28px;inset-inline-end:-24px;background:var(--night);color:var(--pearl);padding:18px 22px;display:grid;gap:2px;border:1px solid var(--line-d);min-width:0}
+.arch .badge b{font-family:var(--latin);font-size:2.6rem;color:var(--gold);line-height:1}
+.arch .badge small{font-size:.78rem;color:var(--mist)}
+.about-text{display:grid;gap:22px;justify-items:start}
+.about-text .lead{font-family:var(--display);font-size:1.4rem;line-height:1.7;color:var(--sea)}
 .about-text>p{color:var(--muted)}
-.values{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:100%;margin-top:6px}
-.values span{background:var(--card);border:1px solid var(--line);padding:10px 12px;font-size:.86rem;display:flex;gap:8px;align-items:center}
-.values span::before{content:"◆";color:var(--gold);font-size:.6rem}
-.photo{position:relative}
-.photo img{display:block;width:100%;aspect-ratio:4/3.4;object-fit:cover;max-width:100%}
-.photo::before{content:"";position:absolute;inset:-14px -14px 14px 14px;border:1px solid var(--gold);z-index:-1}
-.photo figcaption{position:absolute;inset-inline-start:16px;bottom:16px;background:var(--green);color:#fff;font-size:.8rem;padding:8px 14px}
-@media (max-width:880px){.about{grid-template-columns:1fr}.photo{order:-1;margin-inline:14px 0}.values{grid-template-columns:1fr 1fr}}
+.sign{display:flex;align-items:center;gap:18px;padding-top:10px;border-top:1px solid var(--line-l);width:100%}
+.sign .s{font-family:var(--script);font-size:2rem;color:var(--gold-lo);line-height:1}
+.sign small{display:block;color:var(--muted);font-size:.8rem;line-height:1.5}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-l);border:1px solid var(--line-l);width:100%}
+.pillars div{background:var(--pearl);padding:16px;display:grid;gap:2px}
+.pillars b{font-family:var(--display);font-size:1.1rem}
+.pillars span{font-size:.8rem;color:var(--muted);line-height:1.6}
+@media (max-width:900px){.about{grid-template-columns:1fr;gap:56px}.arch .badge{inset-inline-end:0}}
+@media (max-width:520px){.pillars{grid-template-columns:1fr}}
+
+/* numbers */
+.nums{display:grid;grid-template-columns:repeat(4,1fr)}
+.num{padding:44px 28px;border-inline-start:1px solid var(--line-d);display:grid;gap:6px}
+.num:first-child{border-inline-start:0}
+.num b{font-family:var(--latin);font-weight:500;font-size:clamp(2.8rem,5vw,4rem);color:var(--gold);line-height:1;direction:ltr;text-align:right;font-variant-numeric:lining-nums tabular-nums}
+.num span{color:var(--mist);font-size:.88rem}
+@media (max-width:820px){.nums{grid-template-columns:1fr 1fr}.num:nth-child(3){border-inline-start:0}.num{border-top:1px solid var(--line-d);padding:30px 18px}.num:nth-child(-n+2){border-top:0}}
 
 /* services */
-.services-band{background:color-mix(in srgb,var(--chip) 55%,var(--stone))}
-.services{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;align-items:stretch}
-.svc{background:var(--card);border:1px solid var(--line);padding:26px 22px;display:grid;grid-template-rows:auto auto 1fr auto;gap:12px;transition:transform .25s,box-shadow .25s}
-.svc:hover{transform:translateY(-4px);box-shadow:0 20px 40px -24px rgba(0,0,0,.35)}
-.svc .meta{display:flex;justify-content:space-between;align-items:center}
-.svc .ic{width:40px;height:40px;display:grid;place-items:center;background:var(--chip);color:var(--green-ink)}
-.svc .num{font-size:.78rem;color:var(--muted);font-variant-numeric:tabular-nums}
-.svc h3{font-size:1.2rem}
-.svc p{font-size:.9rem;color:var(--muted)}
-.svc ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:.86rem;align-content:start}
-.svc li{display:flex;gap:8px}
-.svc li::before{content:"✓";color:var(--gold-ink);font-weight:700}
-.svc a{font-size:.85rem;font-weight:600;text-decoration:none;color:var(--green-ink);padding-top:14px;border-top:1px solid var(--line)}
-.svc.featured{background:var(--green);border-color:var(--green);color:#fff}
-.svc.featured p,.svc.featured .num{color:rgba(255,255,255,.75)}
-.svc.featured .ic{background:rgba(255,255,255,.12);color:var(--gold)}
-.svc.featured li::before{color:var(--gold)}
-.svc.featured a{color:var(--gold);border-color:rgba(255,255,255,.18)}
-.svc .badge{font-size:.7rem;padding:2px 10px;background:rgba(201,162,78,.2);color:var(--gold)}
-@media (max-width:1000px){.services{grid-template-columns:1fr 1fr}}
-@media (max-width:560px){.services{grid-template-columns:1fr}}
+.svc-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:end;margin-bottom:56px}
+.svc-head p{color:var(--mist);max-width:34em}
+@media (max-width:820px){.svc-head{grid-template-columns:1fr;gap:16px}}
+.svcs{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line-d)}
+.svc{position:relative;padding:40px 36px 40px 0;border-bottom:1px solid var(--line-d);display:grid;grid-template-columns:auto minmax(0,1fr);gap:24px;overflow:hidden;isolation:isolate}
+.svc:nth-child(odd){border-inline-end:1px solid var(--line-d);padding-inline:0 36px}
+.svc:nth-child(even){padding-inline:36px 0}
+.svc::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(198,166,101,.08),transparent);opacity:0;transition:opacity .4s;z-index:-1}
+.svc:hover::before{opacity:1}
+.svc .n{font-family:var(--display);font-size:2.6rem;color:var(--gold);line-height:1;width:56px}
+.svc h3{font-size:1.6rem;font-weight:700}
+.svc p{color:var(--mist);font-size:.94rem;margin-top:6px}
+.svc ul{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.svc li{font-size:.8rem;padding:4px 12px;border:1px solid var(--line-d);color:var(--gold-hi)}
+.svc a{display:inline-flex;gap:8px;margin-top:18px;font-size:.88rem;color:var(--gold);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .3s}
+.svc a:hover{border-color:var(--gold)}
+.svc .star{position:absolute;top:22px;inset-inline-end:0;font-size:.72rem;color:var(--night);background:var(--gold);padding:2px 10px}
+.svc:nth-child(odd) .star{inset-inline-end:36px}
+@media (max-width:820px){.svcs{grid-template-columns:1fr}.svc,.svc:nth-child(odd),.svc:nth-child(even){padding-inline:0;border-inline-end:0}.svc:nth-child(odd) .star{inset-inline-end:0}}
+@media (max-width:480px){.svc{grid-template-columns:1fr;gap:10px}}
 
 /* method */
-.method{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.mstep{background:var(--card);border:1px solid var(--line);padding:26px 22px;display:grid;gap:10px;align-content:start}
-.mstep .n{width:44px;height:44px;border:1px solid var(--gold);color:var(--gold-ink);display:grid;place-items:center;font-family:var(--display);font-weight:600;border-radius:50%;font-variant-numeric:tabular-nums}
-.mstep h3{font-size:1.05rem}
-.mstep p{font-size:.88rem;color:var(--muted)}
-@media (max-width:900px){.method{grid-template-columns:1fr 1fr}}
-@media (max-width:520px){.method{grid-template-columns:1fr}}
+.center{display:grid;justify-items:center;text-align:center;gap:16px;margin-bottom:64px}
+.center p{color:var(--muted);max-width:38em}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;position:relative}
+.timeline::before{content:"";position:absolute;top:31px;inset-inline:12% 12%;border-top:1px solid var(--gold)}
+.tstep{display:grid;justify-items:center;text-align:center;gap:12px;position:relative}
+.tstep .dia{width:62px;height:62px;display:grid;place-items:center;background:var(--pearl);position:relative}
+.tstep .dia::before{content:"";position:absolute;inset:8px;border:1px solid var(--gold);transform:rotate(45deg);background:var(--pearl)}
+.tstep .dia b{position:relative;font-family:var(--display);font-size:1.4rem;color:var(--gold-lo)}
+.tstep h3{font-size:1.25rem}
+.tstep p{color:var(--muted);font-size:.9rem;max-width:22em}
+.tstep small{font-size:.76rem;color:var(--sea);background:var(--pearl-2);padding:2px 12px}
+@media (max-width:900px){.timeline{grid-template-columns:1fr 1fr;gap:44px 24px}.timeline::before{display:none}}
+@media (max-width:480px){.timeline{grid-template-columns:1fr}}
 
 /* team */
-.team{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:20px;align-items:stretch}
-.member{background:var(--card);border:1px solid var(--line);display:grid;grid-template-rows:auto 1fr}
-.member .pic{position:relative;aspect-ratio:4/4.2;max-width:100%;overflow:hidden;background:var(--green)}
-.member .pic img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
-.member .pic .mono{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-size:4.4rem;color:var(--gold)}
-.member .pic .mono::after{content:"";position:absolute;inset:14px;border:1px solid rgba(211,174,95,.35)}
-.member .tag{position:absolute;bottom:12px;inset-inline-start:12px;background:var(--green);color:#fff;font-size:.74rem;padding:4px 10px;z-index:1}
-.member .info{padding:20px 22px;display:grid;gap:6px;align-content:start}
-.member h3{font-size:1.15rem}
-.member .role{font-size:.82rem;color:var(--gold-ink);font-weight:600}
-.member p{font-size:.88rem;color:var(--muted)}
-.member .lic{font-size:.76rem;color:var(--muted);border-top:1px solid var(--line);padding-top:10px;margin-top:8px}
-@media (max-width:900px){.team{grid-template-columns:1fr 1fr}.member.lead{grid-column:1/-1}.member.lead .pic{aspect-ratio:16/10}}
-@media (max-width:560px){.team{grid-template-columns:1fr}}
+.team{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:64px;align-items:center}
+.lead-card{display:grid;gap:22px;justify-items:start}
+.lead-card .role{font-size:.85rem;color:var(--gold)}
+.lead-card h3{font-size:clamp(2rem,3.6vw,2.8rem)}
+.lead-card>p{color:var(--mist)}
+.creds{list-style:none;margin:0;padding:0;display:grid;gap:10px;width:100%}
+.creds li{display:flex;gap:14px;align-items:baseline;padding-bottom:10px;border-bottom:1px solid var(--line-d);font-size:.92rem}
+.creds li b{font-family:var(--latin);color:var(--gold);font-size:1.1rem;min-width:52px;direction:ltr;text-align:right}
+.portrait{position:relative;max-width:440px;width:100%;justify-self:center}
+.portrait .img{aspect-ratio:4/5;max-width:100%;border-radius:999px 999px 0 0;overflow:hidden;border:1px solid var(--line-d)}
+.portrait .img img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.portrait .ring{position:absolute;inset:-18px;border-radius:999px 999px 0 0;border:1px solid var(--line-d);pointer-events:none}
+.portrait figcaption{position:absolute;bottom:0;inset-inline:0;padding:22px;background:linear-gradient(0deg,rgba(11,19,21,.92),transparent);font-family:var(--script);font-size:1.7rem;color:var(--gold-hi);text-align:center}
+@media (max-width:560px){.portrait{width:calc(100% - 24px)}.portrait .ring{inset:-10px}.arch{width:calc(100% - 24px)}}
+.assoc{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-d);border:1px solid var(--line-d);margin-top:16px}
+.assoc div{background:var(--night);padding:24px;display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;align-items:center}
+.assoc .mono{width:52px;height:60px;border-radius:999px 999px 0 0;border:1px solid var(--gold);display:grid;place-items:center;font-family:var(--display);font-size:1.5rem;color:var(--gold)}
+.assoc b{font-family:var(--display);font-size:1.15rem;display:block;line-height:1.4}
+.assoc small{color:var(--mist);font-size:.8rem}
+@media (max-width:900px){.team{grid-template-columns:1fr;gap:56px}.portrait{order:-1}.assoc{grid-template-columns:1fr}}
+
+/* testimonial */
+.quote{display:grid;justify-items:center;text-align:center;gap:24px;max-width:860px;margin-inline:auto}
+.quote .mark{font-family:var(--display);font-size:6rem;line-height:.6;color:var(--gold)}
+.quote blockquote{margin:0;font-family:var(--display);font-size:clamp(1.4rem,2.6vw,2rem);line-height:1.8;color:var(--sea)}
+.quote cite{font-style:normal;font-size:.85rem;color:var(--muted)}
 
 /* contact */
-.contact{background:var(--card);border:1px solid var(--line);display:grid;grid-template-columns:1fr 1.05fr;gap:40px;padding:44px;box-shadow:0 30px 60px -40px rgba(0,0,0,.35)}
-.contact .side{display:grid;gap:18px;align-content:start;justify-items:start}
-.contact .side>p{color:var(--muted)}
-.line-item{display:flex;gap:12px;align-items:center}
-.line-item i{width:40px;height:40px;display:grid;place-items:center;border:1px solid var(--line);font-style:normal;color:var(--green-ink);flex:none}
-.line-item small{display:block;color:var(--muted);font-size:.76rem}
-.line-item b{font-weight:600}
+.contact{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:0;border:1px solid var(--line-d)}
+.contact .side{padding:52px 44px;display:grid;gap:22px;align-content:start;border-inline-end:1px solid var(--line-d)}
+.contact .side>p{color:var(--mist)}
+.ci{display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;align-items:center;padding-block:12px;border-top:1px solid var(--line-d)}
+.ci i{width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--line-d);font-style:normal;color:var(--gold)}
+.ci small{display:block;font-size:.76rem;color:var(--mist)}
 .ltr{direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums;user-select:all}
-form{background:var(--stone);border:1px solid var(--line);padding:26px;display:grid;gap:14px}
-form h3{font-size:1.1rem}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-label{display:grid;gap:6px;font-size:.82rem;font-weight:500;min-width:0}
-input,select,textarea{font:400 .95rem var(--body);color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:2px;padding:11px 12px;width:100%}
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold)}
-textarea{min-height:96px;resize:vertical}
+form{background:var(--pearl);color:var(--ink);padding:44px;display:grid;gap:18px}
+form h3{font-size:1.6rem}
+form .sub{color:var(--muted);font-size:.88rem;margin-top:-10px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{display:grid;gap:6px;font-size:.8rem;font-weight:500;color:var(--muted);min-width:0}
+input,select,textarea{font:400 1rem var(--body);color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--line-l);border-radius:0;padding:10px 2px;width:100%;transition:border-color .3s}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold-lo)}
+textarea{min-height:90px;resize:vertical}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips input{position:absolute;opacity:0;pointer-events:none;width:1px}
+.chips label{display:inline-flex;font-size:.85rem;color:var(--ink);border:1px solid var(--line-l);padding:6px 14px;cursor:pointer;transition:all .25s}
+.chips input:checked+label{background:var(--sea);border-color:var(--sea);color:var(--pearl)}
+.chips input:focus-visible+label{outline:1.5px solid var(--gold);outline-offset:2px}
 .fine{font-size:.76rem;color:var(--muted)}
-.err{font-size:.82rem;color:#B5452F}
-.done{border:1px dashed var(--gold);padding:18px;background:var(--card)}
-.done b{font-family:var(--display);display:block;margin-bottom:4px}
-@media (max-width:880px){.contact{grid-template-columns:1fr;padding:26px}}
-@media (max-width:520px){.contact{padding:18px}form{padding:18px}.row{grid-template-columns:1fr}}
+.err{font-size:.84rem;color:#A53D2B}
+.done{padding:44px;background:var(--pearl);color:var(--ink);display:grid;gap:10px;align-content:center}
+.done b{font-family:var(--display);font-size:1.8rem;color:var(--sea)}
+@media (max-width:900px){.contact{grid-template-columns:1fr}.contact .side{border-inline-end:0;border-bottom:1px solid var(--line-d)}}
+@media (max-width:560px){.contact .side,form,.done{padding:26px 20px}.row{grid-template-columns:1fr}}
 
 /* footer */
-footer{background:#123A30;color:rgba(255,255,255,.75);margin-top:96px;font-size:.88rem}
-footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:30px;padding-block:56px 26px}
-footer h4{color:#fff;margin:0 0 10px;font-size:.95rem}
+footer{background:var(--night);color:var(--mist);font-size:.88rem;position:relative}
+footer .top-band{height:56px}
+footer .wrap.cols{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:36px;padding-block:56px 28px}
+footer h4{margin:0 0 12px;color:var(--pearl);font-weight:500;font-size:.95rem}
 footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
 footer a{text-decoration:none}
 footer a:hover{color:var(--gold)}
-footer .bottom{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.12);padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:.78rem}
-@media (max-width:860px){footer .wrap{grid-template-columns:1fr 1fr}}
-@media (max-width:520px){footer .wrap{grid-template-columns:1fr}}
+footer .bottom{grid-column:1/-1;border-top:1px solid var(--line-d);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:.78rem}
+@media (max-width:860px){footer .wrap.cols{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){footer .wrap.cols{grid-template-columns:1fr}}
 </style>
 
 <div dir="rtl" lang="ar">
 
 <header class="top" id="top">
   <div class="wrap">
-    <a class="brand" href="#home">
-      <svg width="36" height="36" viewBox="0 0 36 36" fill="none" aria-hidden="true"><path d="M18 5v24M9 11h18M9 11l-4 8h8zM27 11l-4 8h8zM12 30h12" stroke="#C9A24E" stroke-width="1.6"/></svg>
-      <span><b>لمى العمودي</b><small>للمحاماة والاستشارات القانونية</small></span>
+    <a class="brand" href="#home" aria-label="مكتب المحامية لمى العمودي">
+      <svg class="mark" viewBox="0 0 40 46" fill="none" aria-hidden="true"><path d="M2 45V20a18 18 0 0 1 36 0v25" stroke="#C6A665" stroke-width="1.2"/><path d="M20 12v26M12 18h16M12 18l-4 8h8zM28 18l-4 8h8zM14 38h12" stroke="#E7D3A1" stroke-width="1.3"/></svg>
+      <span><b>لمى العمودي</b><small>للمحاماة والاستشارات القانونية · جدة</small></span>
     </a>
     <nav class="nav" aria-label="الأقسام">
-      <a href="#home">الرئيسية</a>
-      <a href="#about">من نحن</a>
-      <a href="#services">خدماتنا</a>
-      <a href="#method">كيف نعمل</a>
-      <a href="#team">فريق العمل</a>
-      <a href="#contact">تواصل معنا</a>
+      <a href="#about">عن المكتب</a>
+      <a href="#services">الخدمات</a>
+      <a href="#method">منهجيتنا</a>
+      <a href="#team">المحامية</a>
+      <a href="#contact">تواصل</a>
     </nav>
-    <a class="btn btn-green" href="#contact">احجز استشارة</a>
+    <a class="btn btn-ghost" href="#contact">احجز استشارة</a>
   </div>
 </header>
 
@@ -221,82 +284,108 @@ footer .bottom{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.12);paddi
   <video class="hero-media" autoplay muted loop playsinline poster="hero.jpg" aria-hidden="true">
     <source src="hero.mp4" type="video/mp4">
   </video>
+  <div class="lattice roshan" aria-hidden="true"></div>
+  <div class="frame" aria-hidden="true"></div>
   <div class="wrap">
     <div class="hero-copy">
-      <p class="kicker reveal">مكتب المحامية لمى العمودي · جدة</p>
-      <h1 class="reveal">حقّك يستاهل<span>من يدافع عنه.</span></h1>
-      <p class="lede reveal">محامية مرخّصة تمثّل الأفراد والشركات أمام المحاكم في جدة ومنطقة مكة المكرمة. نسمعك بعناية، ونشرح لك موقفك بوضوح، ونتابع قضيتك حتى تستلم حقك.</p>
-      <div class="actions reveal">
-        <a class="btn btn-gold" href="#contact">احجز استشارة <span class="arrow">←</span></a>
-        <a class="btn btn-line" href="#services">استكشف خدماتنا</a>
+      <p class="est rise"><span class="lat">Jeddah · Est. 2014</span></p>
+      <h1 class="rise d1">نقف معك،<span class="gold">حتى يعود الحقّ لأهله.</span></h1>
+      <p class="lede rise d2">مكتب محاماة في قلب جدة تقوده المحامية لمى العمودي. نمثّل الأفراد والأسر والشركات أمام المحاكم بسرّية تامة، ونشرح لك كل خطوة بلغة واضحة.</p>
+      <div class="actions rise d3">
+        <a class="btn btn-gold" href="#contact">احجز استشارتك ←</a>
+        <a class="btn btn-ghost" href="#services">مجالات الممارسة</a>
       </div>
     </div>
   </div>
   <div class="hero-foot">
-    <div class="wrap"><span>جدة · المملكة العربية السعودية</span><span>استشارات حضورية وعن بُعد</span></div>
+    <div class="wrap"><span>كورنيش جدة · المملكة العربية السعودية</span><span>استشارات بالعربية والإنجليزية</span><span>أقرب موعد استشارة: الأحد ١٠:٣٠ص</span></div>
   </div>
 </section>
 
-<div class="wrap">
-  <div class="stats">
-    <div class="stat"><i aria-hidden="true">⚖</i><div><b>+12</b><small>سنة في التقاضي</small></div></div>
-    <div class="stat"><i aria-hidden="true">✓</i><div><b>+850</b><small>قضية منجزة</small></div></div>
-    <div class="stat"><i aria-hidden="true">☰</i><div><b>+1,200</b><small>استشارة قانونية</small></div></div>
-    <div class="stat"><i aria-hidden="true">◎</i><div><b>+140</b><small>شركة نخدمها</small></div></div>
+<div class="marquee" aria-hidden="true">
+  <div class="track">
+    <span>الأحوال الشخصية</span><span>القضايا التجارية</span><span>العقود والشركات</span><span>القضايا العقارية</span><span>القضايا العمالية</span><span>التحكيم والتسوية</span>
+    <span>الأحوال الشخصية</span><span>القضايا التجارية</span><span>العقود والشركات</span><span>القضايا العقارية</span><span>القضايا العمالية</span><span>التحكيم والتسوية</span>
   </div>
 </div>
 
 <section class="block" id="about">
   <div class="wrap about">
-    <div class="about-text">
-      <span class="pill">من نحن</span>
-      <h2 class="title">محاماة بلمسة إنسانية<span>وحزم في الحق</span></h2>
-      <p class="quote">نؤمن أن كل عميل يستحق أن يفهم قضيته كاملة، لا أن يسمع مصطلحات لا يعرف معناها.</p>
-      <p>تأسس المكتب في جدة على يد المحامية لمى العمودي بعد سنوات من العمل في التقاضي التجاري والأحوال الشخصية. نخدم الأفراد والأسر ورائدات ورواد الأعمال والشركات، ونتعامل مع كل ملف بسرّية تامة ومتابعة شخصية من المحامية نفسها.</p>
-      <div class="values"><span>السرّية</span><span>الوضوح</span><span>الالتزام</span><span>السرعة</span><span>الخبرة</span><span>الأمانة</span></div>
+    <div class="arch">
+      <div class="img"><img src="office.jpg" alt="قاعة اجتماعات المكتب المطلّة على البحر الأحمر في جدة" loading="lazy"></div>
+      <div class="badge"><b>12+</b><small>عامًا من التقاضي في جدة</small></div>
     </div>
-    <figure class="photo" style="margin:0">
-      <img src="office.jpg" alt="قاعة اجتماعات المكتب المطلّة على البحر الأحمر في جدة" loading="lazy">
-      <figcaption>مقر المكتب · كورنيش جدة</figcaption>
-    </figure>
+    <div class="about-text">
+      <span class="eyebrow">عن المكتب</span>
+      <h2 class="h2">مكتبٌ صغير بما يكفي ليعرفك،<em> وقويّ بما يكفي ليدافع عنك.</em></h2>
+      <p class="lead">لا نقبل ملفًا لا نؤمن بأننا نستطيع أن نضيف فيه شيئًا حقيقيًا لصاحبه.</p>
+      <p>تأسس المكتب على كورنيش جدة ليقدّم محاماة تجمع الحزم في المحكمة مع الإنصات الحقيقي للعميل. تتابع المحامية لمى العمودي كل ملف بنفسها، من أول جلسة استماع حتى تنفيذ الحكم.</p>
+      <div class="pillars">
+        <div><b>سرّية مطلقة</b><span>ملفك لا يطّلع عليه إلا فريقه</span></div>
+        <div><b>أتعاب مكتوبة</b><span>تعرف التكلفة قبل أن تبدأ</span></div>
+        <div><b>تقارير بعد كل جلسة</b><span>ملخص مكتوب يصلك مباشرة</span></div>
+      </div>
+      <div class="sign">
+        <span class="s">لمى العمودي</span>
+        <small>المؤسِّسة والمحامية المسؤولة<br>محامية مرخّصة</small>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="block services-band" id="services">
-  <div class="wrap">
-    <div class="center">
-      <span class="pill">خدماتنا القانونية</span>
-      <h2 class="title">حلول قانونية<span>متكاملة ومتخصصة</span></h2>
-      <p>نغطي أكثر القضايا التي يحتاجها الأفراد والأسر والشركات في جدة، مع خطة واضحة وأتعاب مكتوبة من البداية.</p>
+<section class="dark roshan-bg">
+  <div class="wrap nums">
+    <div class="num"><b>12+</b><span>عامًا في التقاضي</span></div>
+    <div class="num"><b>850+</b><span>قضية أُغلقت لصالح العملاء</span></div>
+    <div class="num"><b>1,200+</b><span>استشارة قانونية</span></div>
+    <div class="num"><b>140+</b><span>منشأة وشركة نخدمها</span></div>
+  </div>
+</section>
+
+<section class="block sea" id="services" style="position:relative;overflow:hidden">
+  <div class="roshan" aria-hidden="true" style="position:absolute;inset:0;opacity:.25;-webkit-mask-image:radial-gradient(ellipse at 10% 0%,#000,transparent 55%);mask-image:radial-gradient(ellipse at 10% 0%,#000,transparent 55%)"></div>
+  <div class="wrap" style="position:relative">
+    <div class="svc-head dark" style="background:none">
+      <div style="display:grid;gap:16px;justify-items:start"><span class="eyebrow">مجالات الممارسة</span><h2 class="h2">ستة مجالات،<em> وعناية واحدة بكل ملف.</em></h2></div>
+      <p>اخترنا مجالاتنا بعناية لنتقنها. في كل مجال خطة مكتوبة ومدة متوقعة وأتعاب واضحة قبل أن نبدأ.</p>
     </div>
-    <div class="services">
-      <article class="svc featured">
-        <div class="meta"><span class="ic" aria-hidden="true">♥</span><span class="badge">الأكثر طلبًا</span></div>
-        <h3>الأحوال الشخصية</h3>
-        <p>قضايا الأسرة بحساسية وسرّية، مع تقديم الصلح متى ما كان ممكنًا.</p>
-        <ul><li>الحضانة والنفقة والزيارة</li><li>الخلع والطلاق وإثبات الحقوق</li><li>قسمة التركات وحصر الورثة</li><li>الولاية والوصاية</li></ul>
-        <a href="#contact">طلب استشارة أسرية ←</a>
+    <div class="svcs">
+      <article class="svc">
+        <span class="star">الأكثر طلبًا</span>
+        <span class="n">١</span>
+        <div><h3>الأحوال الشخصية</h3><p>قضايا الأسرة بحساسية وسرّية، مع تقديم الصلح متى ما كان ممكنًا.</p>
+        <ul><li>الحضانة والنفقة</li><li>الخلع والطلاق</li><li>قسمة التركات</li><li>الولاية</li></ul>
+        <a href="#contact">اطلب استشارة أسرية ←</a></div>
       </article>
       <article class="svc">
-        <div class="meta"><span class="ic" aria-hidden="true">▣</span><span class="num">02</span></div>
-        <h3>القضايا التجارية</h3>
-        <p>حماية الشركات والمنشآت أمام المحاكم التجارية ومراكز التحكيم.</p>
-        <ul><li>نزاعات الشركاء</li><li>المطالبات المالية والشيكات</li><li>صياغة ومراجعة العقود</li><li>تأسيس الشركات</li></ul>
-        <a href="#contact">طلب استشارة تجارية ←</a>
+        <span class="n">٢</span>
+        <div><h3>القضايا التجارية</h3><p>نحمي المنشآت أمام المحاكم التجارية في نزاعات الشركاء والمطالبات المالية.</p>
+        <ul><li>نزاعات الشركاء</li><li>الشيكات والسندات</li><li>الإفلاس</li></ul>
+        <a href="#contact">اطلب استشارة تجارية ←</a></div>
       </article>
       <article class="svc">
-        <div class="meta"><span class="ic" aria-hidden="true">⌂</span><span class="num">03</span></div>
-        <h3>القضايا العقارية</h3>
-        <p>عقود البيع والإيجار والمقاولات، ونزاعات الصكوك والإفراغ.</p>
-        <ul><li>نزاعات الإيجار والإخلاء</li><li>عقود المقاولات</li><li>إفراغ الصكوك</li><li>فسخ العقود العقارية</li></ul>
-        <a href="#contact">طلب استشارة عقارية ←</a>
+        <span class="n">٣</span>
+        <div><h3>العقود والشركات</h3><p>نؤسس الشركات ونصيغ العقود التي تمنع النزاع قبل أن يبدأ.</p>
+        <ul><li>عقود التأسيس</li><li>اتفاقيات الشركاء</li><li>مراجعة العقود</li></ul>
+        <a href="#contact">اطلب مراجعة عقد ←</a></div>
       </article>
       <article class="svc">
-        <div class="meta"><span class="ic" aria-hidden="true">◧</span><span class="num">04</span></div>
-        <h3>القضايا العمالية</h3>
-        <p>نمثّل الموظفة والموظف وصاحب العمل أمام المحاكم العمالية.</p>
-        <ul><li>الفصل التعسفي</li><li>المستحقات ونهاية الخدمة</li><li>عقود العمل</li><li>لوائح تنظيم العمل</li></ul>
-        <a href="#contact">طلب استشارة عمالية ←</a>
+        <span class="n">٤</span>
+        <div><h3>القضايا العقارية</h3><p>نزاعات الإيجار والمقاولات والصكوك في سوق جدة العقاري.</p>
+        <ul><li>الإيجار والإخلاء</li><li>عقود المقاولات</li><li>إفراغ الصكوك</li></ul>
+        <a href="#contact">اطلب استشارة عقارية ←</a></div>
+      </article>
+      <article class="svc">
+        <span class="n">٥</span>
+        <div><h3>القضايا العمالية</h3><p>نمثّل الموظف وصاحب العمل أمام المحاكم العمالية بإنصاف.</p>
+        <ul><li>الفصل التعسفي</li><li>نهاية الخدمة</li><li>عقود العمل</li></ul>
+        <a href="#contact">اطلب استشارة عمالية ←</a></div>
+      </article>
+      <article class="svc">
+        <span class="n">٦</span>
+        <div><h3>التحكيم والتسوية</h3><p>حين تكون التسوية أسرع وأقل كلفة، نفاوض عنك ونحفظ حقك كتابيًا.</p>
+        <ul><li>التحكيم التجاري</li><li>الوساطة</li><li>صلح موثّق</li></ul>
+        <a href="#contact">اطلب تسوية ودّية ←</a></div>
       </article>
     </div>
   </div>
@@ -305,107 +394,116 @@ footer .bottom{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.12);paddi
 <section class="block" id="method">
   <div class="wrap">
     <div class="center">
-      <span class="pill">كيف نعمل</span>
-      <h2 class="title">منهجية واضحة<span>من أول تواصل</span></h2>
-      <p>أربع مراحل نلتزم بها في كل ملف، وتعرف في كل مرحلة ماذا ينتظرك.</p>
+      <span class="eyebrow">منهجيتنا</span>
+      <h2 class="h2">أربع مراحل،<em> لا مفاجآت بينها.</em></h2>
+      <p>تعرف في كل مرحلة ما الذي يحدث، ومن المسؤول عنه، ومتى تنتهي.</p>
     </div>
-    <div class="method">
-      <div class="mstep"><span class="n">١</span><h3>الاستماع والتشخيص</h3><p>جلسة استشارة نسمع فيها تفاصيل الموضوع ونطّلع على المستندات.</p></div>
-      <div class="mstep"><span class="n">٢</span><h3>الدراسة والخطة</h3><p>نرسل لك رأيًا مكتوبًا بالخيارات المتاحة والمدة المتوقعة والأتعاب.</p></div>
-      <div class="mstep"><span class="n">٣</span><h3>الترافع والمتابعة</h3><p>نقيّد الدعوى ونحضر الجلسات ونرسل لك ملخصًا بعد كل جلسة.</p></div>
-      <div class="mstep"><span class="n">٤</span><h3>التنفيذ والإغلاق</h3><p>نتابع تنفيذ الحكم أو التسوية حتى تستلم حقك كاملًا.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="block services-band" id="team">
-  <div class="wrap">
-    <div class="center">
-      <span class="pill">فريق العمل</span>
-      <h2 class="title">فريق تقوده<span>محامية بخبرة رائدة</span></h2>
-      <p>فريق صغير يعرف ملفك بالاسم، وتشرف عليه المحامية لمى العمودي شخصيًا.</p>
-    </div>
-    <div class="team">
-      <article class="member lead">
-        <div class="pic"><img src="lawyer.jpg" alt="المحامية لمى العمودي" loading="lazy"><span class="tag">المؤسِّسة والمديرة العامة</span></div>
-        <div class="info">
-          <h3>أ. لمى العمودي</h3>
-          <span class="role">محامية مرخّصة · ماجستير في الأنظمة</span>
-          <p>خبرة تتجاوز ١٢ سنة في قضايا الأحوال الشخصية والنزاعات التجارية، وتمثيل العملاء أمام محاكم جدة.</p>
-          <span class="lic">مكتب في جدة · استشارات حضورية وعن بُعد</span>
-        </div>
-      </article>
-      <article class="member">
-        <div class="pic"><span class="mono" aria-hidden="true">ر</span><span class="tag">محامية مشاركة</span></div>
-        <div class="info">
-          <h3>أ. ريم باشراحيل</h3>
-          <span class="role">القضايا العقارية والعمالية</span>
-          <p>متخصصة في عقود الإيجار والمقاولات ونزاعات العمل.</p>
-        </div>
-      </article>
-      <article class="member">
-        <div class="pic"><span class="mono" aria-hidden="true">ع</span><span class="tag">مستشار قانوني</span></div>
-        <div class="info">
-          <h3>أ. عمر الغامدي</h3>
-          <span class="role">الشركات والعقود</span>
-          <p>يصيغ عقود التأسيس واتفاقيات الشركاء ويراجع العقود قبل التوقيع.</p>
-        </div>
-      </article>
+    <div class="timeline">
+      <div class="tstep"><span class="dia"><b>١</b></span><h3>الاستماع</h3><p>جلسة نسمع فيها قصتك كاملة ونطّلع على مستنداتك.</p><small>٤٥ دقيقة</small></div>
+      <div class="tstep"><span class="dia"><b>٢</b></span><h3>الخطة المكتوبة</h3><p>رأي قانوني مكتوب بالخيارات والمدة المتوقعة والأتعاب.</p><small>٣ إلى ٥ أيام عمل</small></div>
+      <div class="tstep"><span class="dia"><b>٣</b></span><h3>الترافع</h3><p>نقيّد الدعوى ونحضر الجلسات، وتصلك خلاصة كل جلسة.</p><small>حسب جدول المحكمة</small></div>
+      <div class="tstep"><span class="dia"><b>٤</b></span><h3>التنفيذ</h3><p>نتابع التنفيذ حتى تستلم حقك، ثم نسلّمك ملفك كاملًا.</p><small>حتى استلام الحق</small></div>
     </div>
   </div>
 </section>
 
-<section class="block" id="contact" style="padding-bottom:0">
+<section class="block dark" id="team">
+  <div class="wrap team">
+    <div class="lead-card">
+      <span class="eyebrow">المحامية</span>
+      <h3>أ. لمى العمودي</h3>
+      <span class="role">المؤسِّسة والمحامية المسؤولة · ماجستير في الأنظمة</span>
+      <p>بدأت مسيرتها في التقاضي التجاري، ثم تخصصت في قضايا الأسرة والتركات حين رأت كم تحتاج هذه الملفات إلى محامية تفهم تفاصيلها. اليوم تقود فريقًا صغيرًا يتابع كل ملف بالاسم لا بالرقم.</p>
+      <ul class="creds">
+        <li><b>12</b>عامًا في الترافع أمام محاكم جدة ومكة المكرمة</li>
+        <li><b>LL.M</b>ماجستير في الأنظمة، تخصص الأحوال الشخصية</li>
+        <li><b>AR·EN</b>تقدّم الاستشارات بالعربية والإنجليزية</li>
+      </ul>
+    </div>
+    <figure class="portrait" style="margin:0">
+      <div class="ring" aria-hidden="true"></div>
+      <div class="img"><img src="lawyer.jpg" alt="المحامية لمى العمودي"></div>
+      <figcaption>لمى العمودي</figcaption>
+    </figure>
+    <div class="assoc">
+      <div><span class="mono">ر</span><span><b>أ. ريم باشراحيل</b><small>محامية مشاركة · العقاري والعمالي</small></span></div>
+      <div><span class="mono">ع</span><span><b>أ. عمر الغامدي</b><small>مستشار قانوني · العقود والشركات</small></span></div>
+      <div><span class="mono">د</span><span><b>دانة الحربي</b><small>منسّقة الملفات وخدمة العملاء</small></span></div>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap quote">
+    <span class="mark" aria-hidden="true">”</span>
+    <blockquote>دخلت المكتب وأنا خايفة من كل شي. طلعت وأنا فاهمة وضعي، وأعرف بالضبط وش الخطوة الجاية ومتى.</blockquote>
+    <cite>عميلة في قضية حضانة · جدة (مثال توضيحي)</cite>
+  </div>
+</section>
+
+<section class="block dark" id="contact">
   <div class="wrap">
     <div class="contact">
       <div class="side">
-        <span class="pill">تواصل مباشر</span>
-        <h2 class="title">ابدأ بحماية حقك<span>مع مكتب لمى العمودي</span></h2>
-        <p>سواء كنت تحتاج استشارة سريعة أو تمثيلًا كاملًا أمام المحكمة، نرد عليك خلال يوم عمل.</p>
-        <div class="line-item"><i aria-hidden="true">☏</i><div><small>الهاتف</small><b class="ltr">+966 12 000 0000</b></div></div>
-        <div class="line-item"><i aria-hidden="true">✉</i><div><small>واتساب الاستشارات</small><b class="ltr">+966 50 000 0000</b></div></div>
-        <div class="line-item"><i aria-hidden="true">⌖</i><div><small>المقر</small><b>طريق الكورنيش، حي الشاطئ، جدة</b></div></div>
+        <span class="eyebrow">تواصل مباشر</span>
+        <h2 class="h2">ابدأ بخطوة<em> واحدة واضحة.</em></h2>
+        <p>أرسل طلبك وتتواصل معك منسّقة المكتب خلال يوم عمل لتحديد موعد الاستشارة.</p>
+        <div class="ci"><i aria-hidden="true">☏</i><div><small>الهاتف</small><span class="ltr">+966 12 000 0000</span></div></div>
+        <div class="ci"><i aria-hidden="true">✆</i><div><small>واتساب الاستشارات</small><span class="ltr">+966 50 000 0000</span></div></div>
+        <div class="ci"><i aria-hidden="true">⌖</i><div><small>المقر</small><span>طريق الكورنيش، حي الشاطئ، جدة</span></div></div>
+        <div class="ci"><i aria-hidden="true">◷</i><div><small>ساعات العمل</small><span>الأحد إلى الخميس · ٩ص إلى ٥م</span></div></div>
       </div>
       <form id="f" novalidate>
-        <h3>احجز موعد استشارة</h3>
-        <label for="fn">الاسم الكريم<input id="fn" name="n" autocomplete="name" placeholder="الاسم الثلاثي"></label>
+        <h3>طلب استشارة</h3>
+        <p class="sub">كل ما تكتبه هنا محمي بالسرّية المهنية.</p>
         <div class="row">
+          <label for="fn">الاسم الكريم<input id="fn" name="n" autocomplete="name" placeholder="الاسم الثلاثي"></label>
           <label for="fp">رقم الجوال<input id="fp" name="p" dir="ltr" inputmode="tel" placeholder="05XXXXXXXX" autocomplete="tel"></label>
-          <label for="ft">نوع القضية
-            <select id="ft" name="t"><option>الأحوال الشخصية</option><option>القضايا التجارية</option><option>القضايا العقارية</option><option>القضايا العمالية</option><option>أخرى</option></select>
-          </label>
         </div>
-        <label for="fm">نبذة موجزة عن الموضوع<textarea id="fm" name="m" placeholder="اشرح باختصار طبيعة الاستشارة أو النزاع"></textarea></label>
+        <div style="display:grid;gap:8px">
+          <span style="font-size:.8rem;font-weight:500;color:var(--muted)">مجال القضية</span>
+          <div class="chips" role="radiogroup" aria-label="مجال القضية">
+            <input type="radio" name="t" id="t1" value="الأحوال الشخصية" checked><label for="t1">الأحوال الشخصية</label>
+            <input type="radio" name="t" id="t2" value="تجارية"><label for="t2">تجارية</label>
+            <input type="radio" name="t" id="t3" value="عقود وشركات"><label for="t3">عقود وشركات</label>
+            <input type="radio" name="t" id="t4" value="عقارية"><label for="t4">عقارية</label>
+            <input type="radio" name="t" id="t5" value="عمالية"><label for="t5">عمالية</label>
+          </div>
+        </div>
+        <label for="fmode">طريقة الاستشارة
+          <select id="fmode" name="mode"><option>حضوريًا في المكتب</option><option>اتصال مرئي</option><option>مكالمة هاتفية</option></select>
+        </label>
+        <label for="fm">نبذة عن الموضوع<textarea id="fm" name="m" placeholder="اكتب باختصار ما تحتاج المساعدة فيه"></textarea></label>
         <p class="err" id="ferr" hidden>اكتب الاسم ورقم الجوال حتى نتواصل معك.</p>
-        <button class="btn btn-green" type="submit">إرسال طلب الاستشارة ←</button>
-        <p class="fine">جميع البيانات تُعامل بسرّية تامة.</p>
+        <button class="btn btn-dark" type="submit">أرسل الطلب ←</button>
+        <p class="fine">نسخة عرض: النموذج غير مربوط بعد ببريد المكتب.</p>
       </form>
       <div class="done" id="done" hidden>
-        <b>تم استلام طلبك</b>
-        <span id="donetext"></span>
-        <p class="fine" style="margin-top:8px">نسخة عرض: النموذج غير مربوط بعد ببريد المكتب.</p>
+        <b>وصلنا طلبك.</b>
+        <p id="donetext"></p>
       </div>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="wrap">
+  <div class="top-band roshan" aria-hidden="true"></div>
+  <div class="wrap cols">
     <div>
       <h4>مكتب المحامية لمى العمودي</h4>
       <p>للمحاماة والاستشارات القانونية في جدة. نمثّل الأفراد والأسر والشركات بسرّية واحترافية.</p>
     </div>
     <div>
-      <h4>روابط سريعة</h4>
-      <ul><li><a href="#about">من نحن</a></li><li><a href="#method">كيف نعمل</a></li><li><a href="#team">فريق العمل</a></li><li><a href="#contact">تواصل معنا</a></li></ul>
+      <h4>المكتب</h4>
+      <ul><li><a href="#about">عن المكتب</a></li><li><a href="#method">منهجيتنا</a></li><li><a href="#team">المحامية</a></li><li><a href="#contact">تواصل</a></li></ul>
     </div>
     <div>
-      <h4>مجالات التخصص</h4>
-      <ul><li>الأحوال الشخصية</li><li>القضايا التجارية</li><li>القضايا العقارية</li><li>القضايا العمالية</li></ul>
+      <h4>مجالات الممارسة</h4>
+      <ul><li>الأحوال الشخصية</li><li>القضايا التجارية</li><li>العقود والشركات</li><li>القضايا العقارية</li></ul>
     </div>
     <div>
-      <h4>المقر وساعات العمل</h4>
-      <p>طريق الكورنيش، حي الشاطئ، جدة<br>الأحد إلى الخميس: ٩ ص إلى ٥ م</p>
+      <h4>المقر</h4>
+      <p>طريق الكورنيش، حي الشاطئ، جدة<br><span class="ltr">+966 12 000 0000</span></p>
     </div>
     <div class="bottom">
       <span>© ٢٠٢٦ مكتب المحامية لمى العمودي. الاسم والبيانات أمثلة توضيحية.</span>
@@ -418,18 +516,18 @@ footer .bottom{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.12);paddi
 <script>
 (function(){
   var top=document.getElementById('top');
-  function onScroll(){top.classList.toggle('solid',window.scrollY>40)}
+  function onScroll(){top.classList.toggle('solid',window.scrollY>60)}
   window.addEventListener('scroll',onScroll,{passive:true});onScroll();
   var v=document.querySelector('.hero-media');
-  if(v&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');v.pause&&v.pause()}
+  if(v&&window.matchMedia('(prefers-reduced-motion: reduce)').matches){v.removeAttribute('autoplay');try{v.pause()}catch(e){}}
   var f=document.getElementById('f');
   f.addEventListener('submit',function(e){
     e.preventDefault();
-    var n=f.n.value.trim(),p=f.p.value.trim();
-    var err=document.getElementById('ferr');
+    var n=f.n.value.trim(),p=f.p.value.trim(),err=document.getElementById('ferr');
     if(!n||!p){err.hidden=false;(n?f.p:f.n).focus();return}
     err.hidden=true;
-    document.getElementById('donetext').textContent='شكرًا '+n.split(' ')[0]+'، سنتواصل معك على '+p+' بخصوص '+f.t.value+'.';
+    var t=f.querySelector('input[name="t"]:checked').value;
+    document.getElementById('donetext').textContent='شكرًا '+n.split(' ')[0]+'. ستتواصل معك منسّقة المكتب على '+p+' لتحديد موعد استشارة '+t+' ('+f.mode.value+').';
     f.hidden=true;document.getElementById('done').hidden=false;
   });
 })();
